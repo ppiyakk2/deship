@@ -1,0 +1,3 @@
+[submodule "deship/plinth"]
+	path = deship/plinth
+	url = https://github.com/nexusz99/plinth.git
