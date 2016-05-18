@@ -1,3 +1,6 @@
 [submodule "deship/plinth"]
 	path = deship/plinth
 	url = https://github.com/nexusz99/plinth.git
+[submodule "submodules/plinth"]
+	path = submodules/plinth
+	url = https://github.com/nexusz99/plinth.git
