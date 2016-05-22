@@ -26,7 +26,7 @@ def sigterm(signum, frame):
 
 if __name__ == '__main__':
     init_config()
-    print 'Starting IoT Platform'
+    print 'Starting IoT Platform !'
     print 'Service Server Starting...'
     service_pid = service_server.run_service()
     message_pid = TelehashServer().run()
