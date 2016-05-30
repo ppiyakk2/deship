@@ -29,7 +29,7 @@ if __name__ == '__main__':
     print 'Starting IoT Platform !'
     print 'Service Server Starting...'
     service_pid = service_server.run_service()
-    message_pid = TelehashServer().run()
+    #message_pid = TelehashServer().run()
 
     signal.signal(signal.SIGTERM, sigterm)
     signal.signal(signal.SIGINT, sigterm)
