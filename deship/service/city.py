@@ -12,7 +12,7 @@ def regCity():
     for i in cityInfoList:
         city_curDict = json.loads(i)
         if cur_city['city_name']==city_curDict['city_name']:
-            return 'City already in list', 405
+            return 'City already existed in list', 405
 
     city.addCityInfo(cur_city)
     return 'Success City registration'
