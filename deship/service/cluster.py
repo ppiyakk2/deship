@@ -8,7 +8,7 @@ from deship.database import cluster
 def cluster_status():
     total_nodes = len(cluster.get_all_servers())
     connected_nodes = len(cluster.get_connected_servers())
-    utilized = (connected_nodes/total_nodes) * 100
+    utilized = (float(connected_nodes)/total_nodes) * 100
     return jsonify(
         total=total_nodes,
         connected=connected_nodes,

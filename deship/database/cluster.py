@@ -10,7 +10,7 @@ def get_connected_servers():
 def get_all_servers():
     con = r.connect()
     l = list(r.db('rethinkdb').table('table_config').
-             concat_map(lambda x: x['shards']).
+             concat_map(lambda x: x['shards'].default([])).
              concat_map(lambda c: c['replicas']).distinct().run(con))
     return l
 
