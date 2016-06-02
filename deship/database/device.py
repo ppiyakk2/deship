@@ -9,10 +9,7 @@ def addDeviceInfo(deviceinfo):
     return 'good'
 
 def getAllDevice():
-    list= []
-    f = open("device_Info.txt", 'r')
-    while True:
-        str =f.readline()
-        if not str: break
-        list.append(str)
-    return list
+    l = None
+    with open("device_Info.txt", 'r') as f:
+        l = json.load(f)
+    return l

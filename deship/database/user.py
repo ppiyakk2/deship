@@ -9,10 +9,7 @@ def addUserInfo(userinfo):
     return 'good'
 
 def getAllUser():
-    list= []
-    f = open("user_Info.txt", 'r')
-    while True:
-        str =f.readline()
-        if not str: break
-        list.append(str)
-    return list
+    l = None
+    with open("user_Info.txt", 'r') as f:
+        l = json.load(f)
+    return l
