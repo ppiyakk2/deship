@@ -2712,8 +2712,32 @@ var Nwagon_ie = {
     }
 };
 
+// "기기 등록" 모달의 "등록" 버튼 클릭 시 : Ajax-JSON, POST로 서버에 정보 전달
+function addDevice()
+{
+			var SN = $("#register_SN").val();
+			var name = $("#register_device_name").val();
+			var type = $("#register_device_type").val();
+			var date = $("#register_productive_date").val();
+			$.ajax({
+				type : 'POST',
+				url : '/reg_device',
+				dataType : 'json',
+				data :
+				{
+						"SN" : SN,
+						"device_name" : name,
+						"device_type" : type,
+						"productive_date" : date
+				},
+				success : function(data)
+				{
+					alert(SN, name, type, date);
+				}			
+			});
+}
 
-// 사용자 목록 조회 : Ajax-JSON
+// 기기 목록 조회 : Ajax-JSON
 $(function(){
 	$.ajax({
 		type:'GET',
@@ -2724,6 +2748,39 @@ $(function(){
 			$.each(device_list, function(entryIndex, entry){
 				$("#table_device_h").after(
 					"<tr><td>"+entry.SN+"</td><td>"+entry.device_type+"</td><td>"+entry.device_name+"</td><td>"+entry.productive_date+"</td></tr>");
+			});		
+		}
+	});
+});
+// 사용자 목록 조회 : Ajax-JSON
+$(function(){
+	$.ajax({
+		type:'GET',
+		url:"/user_list",
+		dataType:'json',
+		success:function(data){
+			user_list = data['userlist'];
+			$.each(user_list, function(entryIndex, entry){
+				$("#table_user_h").after(
+						"<tr><td>"+entry.ID+"</td><td>"+entry.reg_date+"</td><td>"+entry.user_name+"</td><td><button type=\"button\" id=\""+entry.ID+"\" class=\"btn_ang\" data-toggle=\"modal\" data-target=\"#modal_userDetail\">보기</button></td></tr>"
+					);
+			});		
+		}
+	});
+});
+
+// 도시 목록 조회 : Ajax-JSON
+$(function(){
+	$.ajax({
+		type:'GET',
+		url:"/city",
+		dataType:'json',
+		success:function(data){
+			cityList = data['citylist'];
+			$.each(cityList, function(entryIndex, entry){
+				$("#btnlist_city").append(
+					"<a href=\"/provider_cityinfo\" class=\"btn_ang citybtn\" id=\""+entry.id+"\">"+entry.name+"</a>"
+				);
 			});		
 		}
 	});
@@ -2778,5 +2835,4 @@ $(function(){
 		'isGuideLineNeeded' : true //default set to false
 		};
 		Nwagon.chart(options_line);
-	});
-
+});

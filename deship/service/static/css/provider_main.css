@@ -369,4 +369,50 @@ body
 	text-decoration:none !important;
 	color:white;
 }
+.table_ang
+{
+	margin:auto auto;
+	width:102%;
+}
+.table_ang>tbody
+{
+	margin:auto auto;
+}
+.table_ang>tbody>tr>th
+{
+	text-align:center;
+	font-size:11pt;
+	padding-left:8px;
+	padding-right:8px;
+	padding-top:4px;
+	padding-bottom:4px;
+}
+.table_ang>tbody>tr>td
+{
+	text-align:center;
+	font-size:10pt;
+	padding-left:8px;
+	padding-right:8px;
+	padding-top:4px;
+	padding-bottom:4px;
+}
+#table_userDevice
+{
+	border-top:1px solid #D0D0D0;	
+}
+#table_userDetail>tbody>tr>th
+{
+	text-align:right !important;
+}
+#table_userDetail>tbody>tr>td
+{
+	padding-left:15px;
+	text-align:left !important;
+}
+#table_userDevice>tbody:first-child
+{
+	font-weight:bold;
+	text-align:center;
+	font-size:12pt;
+}
 /**********************************/

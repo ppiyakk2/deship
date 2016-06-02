@@ -66,13 +66,13 @@
 				<div>
 					<!-- 기기 등록  -->
 					<button type="button" id="btn_add3rd" class="btn_transp" 
-					data-toggle="modal" data-target="#modal_add3rd">
+					data-toggle="modal" data-target="#modal_addDevice">
 						기기 등록 | Add Device
 					</button>
 					
 					<!-- 기기 정보 목록 -->
-					<button type="button" data-toggle="collapse" data-target="#col_3rdlist" 
-					id="btn_3rdlist" class="btn_transp" aria-expanded="false" aria-controls="col_3rdlist">
+					<button type="button" data-toggle="collapse" data-target="#col_deviceList" 
+					id="btn_3rdlist" class="btn_transp" aria-expanded="false" aria-controls="col_deviceList">
 						기기 목록 조회 | Show Device List
 					</button>
 					
@@ -82,12 +82,12 @@
 						사용자 목록 조회 | Show User List
 					</button>
 					
-					<div class="collapse" id="col_3rdlist">
+					<div class="collapse" id="col_deviceList">
 						<div class="well">
 							<div id="container_requestboard">
 	    		<table id="table_device">
 	    			<tr id="table_device_h">
-	    				<th>S/N</th>
+	    				<th>제품 번호</th>
 	    				<th>제품 유형</th>
 	    				<th>제품명</th>
 	    				<th>생산 일시</th>
@@ -106,30 +106,18 @@
 						<div class="well">
 							<div id="container_userboard">
 	    		<table id="table_user">
-	    			<tr>
-	    				<th>사용자 계정</th>
-	    				<th>이름</th>
+	    			<tr id="table_user_h">
+	    				<th>ID</th>
 	    				<th>등록 시간</th>
+	    				<th>사용자 이름</th>
+	    				<th>상세 정보</th>
 	    			</tr>
 	    			<tr>
-	    				<td>a1234</td>
-	    				<td>김태경</td>
-	    				<td>20:45 MAY 26, 2016</td>
-	    			</tr>
-	    			<tr>
-	    				<td>a1235</td>
-	    				<td>정회운</td>
-	    				<td>20:49 MAY 26, 2016</td>
-	    			</tr>
-	    			<tr>
-	    				<td>a1236</td>
-	    				<td>조성수</td>
-	    				<td>21:55 MAY 26, 2016</td>
-	    			</tr>
-	    			<tr>
-	    				<td>a1237</td>
-	    				<td>경희대학교</td>
-	    				<td>21:01 MAY 26, 2016</td>
+	    				<td>sample</td>
+	    				<td>ㅛㅛㅛㅛ ㅡㅡ ㅇㅇ ㅗㅗ:ㅡㅡ</td>
+	    				<td>예제임</td>
+	    				<td><button type="button" id="sample" class="btn_ang" 
+	    					data-toggle="modal" data-target="#modal_userDetail">보기</button></td>
 	    			</tr>
 	    		</table>
 	    	</div>
@@ -139,9 +127,9 @@
 			</div>
 		</div>
 		
-		<!-- Modal -->
-		<div class="modal fade" id="modal_add3rd" tabindex="-1" role="dialog" 
-		aria-labelledby="modal_add3rd" aria-hidden="true">
+		<!-- 모달 : 기기 등록 -->
+		<div class="modal fade" id="modal_addDevice" tabindex="-1" role="dialog" 
+		aria-labelledby="modal_addDevice" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -149,15 +137,91 @@
 						<h4 class="modal-title" id="myModalLabel">기기 등록 | Add Device</h4>
 				  	</div>
 				  	<div class="modal-body">
-				    	...
+				  		<form>
+							<div class="form-group">
+								<label for="register_SN">일련 번호</label>
+								<input type="text" class="form-control" id="register_SN" placeholder="일련 번호를 입력하세요.">
+							</div>
+							<div class="form-group">
+								<label for="register_device_type">제품 유형</label>
+								<input type="text" class="form-control" id="register_device_type" placeholder="제품 유형을 입력해주세요.">
+							</div>
+							<div class="form-group">
+								<label for="register_device_name">제품명</label>
+								<input type="text" class="form-control" id="register_device_name" placeholder="제품명을 입력해주세요.">
+							</div>
+							<div class="form-group">
+								<label for="register_productive_date">생산 일시</label>
+								<input type="text" class="form-control" id="register_productive_date" placeholder="생산 일시를 입력해주세요.">
+							</div>
+						</form>
 				  	</div>
 				  	<div class="modal-footer">
-				  		<button type="button" class="btn_save">저장</button>
+				  		<button type="button" onclick="addDevice()" id="btn_accept_addDevice" class="btn_save">등록</button>
 						<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
 					</div>
 				</div>
 			</div>
 		</div>
+		<!-- 모달 : 기기 등록 종료 -->
+		
+		<!-- 모달 : 사용자 상세 정보 -->
+		<div class="modal fade" id="modal_userDetail" tabindex="-1" role="dialog" 
+		aria-labelledby="modal_userDetail" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel">사용자 상세 정보</h4>
+				  	</div>
+				  	<div class="modal-body">
+				  		<table id="table_userDetail" class="table_ang">
+				  			<tr>
+				  				<th>ID</th>
+				  				<td id="detail_ID">sample</td>
+				  			</tr>
+				  			<tr>
+				  				<th>등록 시간</th>
+				  				<td id="detail_reg_date">YYYY MM DD HH:mm</td>
+				  			</tr>
+				  			<tr>
+				  				<th>사용자 이름</th>
+				  				<td id="detail_user_name">예제임</td>
+				  			</tr>
+				  			<tr>
+				  				<th>연락처</th>
+				  				<td id="detail_phone">010-1234-1234</td>
+				  			</tr>
+				  			<tr>
+				  				<th>주소</th>
+				  				<td id="detail_address">경기도 수원시 여러분</td>
+				  			</tr>
+				  		</table>
+				  		<table id="table_userDevice" class="table_ang">
+				  			<tbody>
+				  				<tr><th colspan="4">등록한 기기 목록</th></tr>
+				  				<tr id="tr_userDevice">
+				  					<th>제품 번호</th>
+				  					<th>제품명</th>
+				  					<th>제품 유형</th>
+				  					<th>생산 일시</th>
+				  				</tr>	
+				  				<tr>
+				  					<td>SAMPLE123</td>
+				  					<td>예시제품</td>
+				  					<td>전시품</td>
+				  					<td>YYYY MM DD HH:mm</td>
+				  				</tr>  				
+				  			</tbody>
+				  		</table>
+				  	</div>
+				  	<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 모달 : 사용자 상세 정보 종료 -->
 
 	<!-- 본문 종료 -->
     </body>
