@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    	<!-- 메타 정보 및 스타일 시트 연동 -->
+   		<meta charset="utf-8">
+        <title>Provider dashboard</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link type="text/css" href="/static/css/Nwagon.css" rel="stylesheet"/>
+        <link type="text/css" href="/static/css/bootstrap.css" rel="stylesheet"/>
+        <link type="text/css" href="/static/css/fontbase.css" rel="stylesheet"/>
+        <link type="text/css" href="/static/css/provider_cityinfo.css" rel="stylesheet"/>
+    </head>
+    <!-- JQuery, Ajax, 부트스트랩 컴포넌트 연동 -->
+    <script src="/static/js/Nwagon.js"></script>
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="/static/js/bootstrap.js"></script>	
+	
+    <body>
+    	
+    	<!-- 최상단 소형 헤더 -->
+		<div id="container_navbar_top">
+			<a href="/" id="btn_navbar_top_back" class="glyphicon glyphicon-menu-left"></a>
+			<span id="header_navbar_top">사업자 대시보드 : 도시 A</span>
+			<button id="btn_navbar_top_bottom" class="glyphicon glyphicon-menu-down"></button>
+		</div>
+		<!-- 몸통 -->
+		<div id="container_body">
+			<!-- SVG 헤더 -->
+			<div id="container_SVGheader">
+				<span>도시 영역 현황 - </span>
+				<span id="cityname"><em>City A</em></span>
+			</div>
+			<!-- SVG 그래프 & 정보 컨테이너 -->
+			<div id="container_SVG_p">
+				<!-- 그래프 정보 컨테이너 -->
+				<div id="container_SVGinfo">
+					<div>
+						<div id="cluster_nodes_stat"><h4 id="nodes_stat_num"><strong>3,770</strong></h4></div>
+						<script>
+							var options = {
+								'dataset':{
+									title: 'nodes status',
+									values:[3770],
+									colorset: ['#D1B2FF', '#FFFFFF'],
+									fields: ['Nodes', ''],
+								},
+								'donut_width' : 25,
+								'core_circle_radius':30,
+								'chartDiv': 'cluster_nodes_stat',
+								'chartType': 'donut',
+								'chartSize': {width:290, height:150}
+							};
+							Nwagon.chart(options);
+						</script>
+						<span>클러스터에 참여한 노드 : </span><br>
+						<p><strong>3,770 nodes</strong></p>
+					</div>
+					<div>
+						<div id="cluster_active_stat"><h4 id="active_stat_num"><strong>3,690</strong></h4></div>
+						<script>
+							var options = {
+								'dataset':{
+									title: 'activated nodes status',
+									values:[3690],
+									colorset: ['#98F791', '#FFFFFF'],
+									fields: ['Activated', ''],
+								},
+								'donut_width' : 25,
+								'core_circle_radius':30,
+								'chartDiv': 'cluster_active_stat',
+								'chartType': 'donut',
+								'chartSize': {width:290, height:150}
+							};
+							Nwagon.chart(options);
+						</script>
+						<span>활성화 된 노드 : </span><br>
+						<p><strong>3,690 nodes</strong></p>
+					</div>
+					<div>
+						<div id="cluster_util_stat"><h4 id="util_stat_num"><strong>97.6</strong></h4></div>
+						<script>
+							var options = {
+								'dataset':{
+									title: 'Utilization status',
+									values:[97.8, 100-97.8],
+									colorset: ['#FF7012', '#FFFFFF'],
+									fields: ['Utilization', ''],
+								},
+								'donut_width' : 25,
+								'core_circle_radius':30,
+								'chartDiv': 'cluster_util_stat',
+								'chartType': 'donut',
+								'chartSize': {width:290, height:150}
+							};
+							Nwagon.chart(options);
+						</script>
+						<span>클러스터 가용률 : </span><br>
+						<p><strong>+ 97.8 %</strong></p>
+					</div>
+				</div>
+				
+				<div id="container_SVG">
+					<span id="label_unit">(단위 : KB/초)</span>
+						<div id="chart_cluster_util"></div>
+							<script>
+								var options = {
+									'legend':{names: ['11', '12', '13', '14', '15', '16', '17', '18', '19', 
+										'20', '21', '22', '23', '24', '25', '26', '27', '28']},
+									'dataset':{title:'Cluster Utilization', 
+										values: [[3960,3820], [4030,3900], [4100,3870], [4290,4080], [4320, 4120], 
+										[4400,4330], [4480, 4300], [4510,4390], 
+										[4570,4510], [4610,4580], [4620,4600], [4650, 4620],
+										 [4720,4560], [4780, 4730], [4890, 4840], [4910,4900], [4930,4910], [4970,4920],[5010,4890]],
+										colorset: ['#489CFF', '#FF5A5A'],
+										fields:['Read', 'Write' ]},
+									'chartDiv' : 'chart_cluster_util',
+									'chartType' : 'line',
+									'leftOffsetValue': 45,
+									'bottomOffsetValue': 30,
+									'chartSize' : {width:920, height:300},
+									'minValue' :3000,
+									'maxValue' : 5000,
+									'increment' : 200,
+									'isGuideLineNeeded' : true //default set to false
+								};
+								Nwagon.chart(options);
+							</script>
+							<h3>클러스터 처리율 그래프(Cluster Through-put Chart)</h3>
+				</div>
+				<div id="container_Pi_p">
+					<div id="container_PiSVG">
+						<div id="chart_city_scale"></div>
+						<script>
+						    var options = {
+						        'legend':{
+						            names: [['City A'], ['Other City']]
+						        },
+						        'dataset': {
+						            title: 'city scale chart',
+						            values: [[32.6],[67.4]],
+						            degree_values:[326, 674],
+						            colorset: ['#009e73', '#56b4e9'],
+						            fields: ['City A', 'Other City'],
+						            opacity:[0.8, 0.25]
+						        },
+						        'core_circle_value' : ['32.6%'],
+						        'core_circle_radius':25,
+						        'maxValue' : 100,
+						        'increment' : 15,
+						        'chartDiv': 'chart_city_scale',
+						        'chartType': 'polar_pie',
+						        'chartSize': {width:550, height:280}
+						    };
+						    Nwagon.chart(options);
+						</script>
+						<h3>도시영역 규모 | Scale of city area</h3>
+					</div>
+					<div id="container_PiSVGinfo">
+						<div>
+							<span>전체 노드 수 | Total Clusters</span><br>
+							<p><strong>11,782 nodes</strong></p>
+						</div>
+						<div>
+							<span>해당 영역 노드 수 | Clusters in this area</span><br>
+							<p><strong>3,770 nodes</strong></p>
+						</div>
+						<div>
+							<span>도시 영역 비중 | Gravity</span><br>
+							<p><strong>+ 32.6%</strong></p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 기기 & 사용자 관련 정보 컨테이너 -->
+			<div id="container_infolist">
+				<div>
+					<!-- 협력업체 정보 추가  -->
+					<button type="button" id="btn_add3rd" class="btn_transp" 
+					data-toggle="modal" data-target="#modal_add3rd">
+						협력업체 정보 추가 | Add 3rd party
+					</button>
+					
+					<!-- 협력업체 정보 목록 -->
+					<button type="button" data-toggle="collapse" data-target="#col_3rdlist" 
+					id="btn_3rdlist" class="btn_transp" aria-expanded="false" aria-controls="col_3rdlist">
+						협력업체 목록 | 3rd party list
+					</button>
+					
+					<div class="collapse" id="col_3rdlist">
+						<div class="well">
+							<ul>
+								<li>조성수의 가전 소모품 판매점</li>
+								<li>정회운의 가전 수리점</li>
+								<li>김태경의 가전 설비 시공점</li>
+								<li>경희 가전 판매 대리점</li>
+							</ul>
+						</div>
+					</div>
+				</div>			
+			</div>
+		</div>
+		
+		<!-- Modal -->
+		<div class="modal fade" id="modal_add3rd" tabindex="-1" role="dialog" 
+		aria-labelledby="modal_add3rd" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel">협력업체 정보 추가 | Add 3rd party</h4>
+				  	</div>
+				  	<div class="modal-body">
+				    	...
+				  	</div>
+				  	<div class="modal-footer">
+				  		<button type="button" class="btn_save">저장</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	<!-- 본문 종료 -->
+    </body>
+</html>

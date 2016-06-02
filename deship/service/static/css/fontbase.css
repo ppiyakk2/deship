@@ -1,0 +1,22 @@
+@charset "utf-8";
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+@font-face{
+font-family:"Nanum Barun Gothic";
+font-style:normal;
+font-weight:normal;
+src:url('/static/fonts/NanumBarunGothic.eot');
+src:local('※'),
+	url('/static/fonts/NanumBarunGothic.eot') format('embedded-opentype'),
+	url('/static/fonts/NanumBarunGothic.woff') format('woff');
+}
+
+@font-face{
+font-family:"Nanum Barun Gothic Bold";
+font-style:normal;
+font-weight:normal;
+src:url('/static/fonts/NanumBarunGothic.eot');
+src:local('※'),
+	url('/static/fonts/NanumBarunGothicBold.eot?#iefix') format('embedded-opentype'),
+	url('/static/fonts/NanumBarunGothicBold.woff') format('woff');
+}
