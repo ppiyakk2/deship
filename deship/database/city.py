@@ -1,4 +1,7 @@
 import json
+import rethinkdb as r
+
+from . import get_connect
 
 
 def addCityInfo(cityinfo):
@@ -8,11 +11,7 @@ def addCityInfo(cityinfo):
     f.close()
     return 'good'
 
+
 def getAllCity():
-    list= []
-    f = open("city_Info.txt", 'r')
-    while True:
-        str =f.readline()
-        if not str: break
-        list.append(str)
-    return list
+    con = get_connect()
+    return list(r.db('service_provider').table('cities').run(con))
