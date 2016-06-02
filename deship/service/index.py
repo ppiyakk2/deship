@@ -3,4 +3,4 @@ from . import app
 
 @app.route('/')
 def index():
-    return 'Hello World'
+    return "This is city area's distributed manager"
