@@ -28,3 +28,17 @@ def regUser():
 def printUserList():
     userlist = user.getAllUser()
     return jsonify(userlist=userlist)
+
+@app.route('/user_info')
+def userinfo():
+    userlist = user.getAllUser()
+    return jsonify(userlist=userlist)
+
+
+@app.route('/user_devlist/<user_id>', methods=['GET'])
+def userdevicelist(user_id):
+    print user_id
+    a = [{"SN": "NF523TG5", "device_name": "R570", "device_type": "Laundry", "productive_date": "2016-06-02"},
+        {"SN": "GRO1245", "device_name": "Y5", "device_type": "Fan", "productive_date": "2016-01-02"},
+        {"SN": "GOE3021", "device_name": "UHDTV", "device_type": "TV", "productive_date": "2016-03-02"}]
+    return jsonify(devicelist=a)

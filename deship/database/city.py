@@ -4,14 +4,11 @@ import rethinkdb as r
 from . import get_connect
 
 
-def addCityInfo(cityinfo):
-    f = open("city_Info.txt", 'a')
-    f.write(json.dumps(cityinfo))
-    f.write("\n")
-    f.close()
+def add_city_info(cityinfo):
+
     return 'good'
 
 
-def getAllCity():
+def get_all_city():
     con = get_connect()
     return list(r.db('service_provider').table('cities').run(con))

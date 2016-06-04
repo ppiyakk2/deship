@@ -5,6 +5,7 @@ from deship import config
 
 config.init_config()
 
+
 class TelehashServer:
     def __init__(self):
         id_key = self.__get_seed_id()
