@@ -55,9 +55,7 @@
 				<div id="container_citylist">
 					<h3>도시 영역 목록</h3>
 					<div id="btnlist_city">
-						<a href="/provider_cityinfo" class = "btn_ang citybtn" id="city_A">City A</a>
-						<a href="#" class = "btn_ang citybtn" id="city_B">City B</a>
-						<a href="#" class = "btn_ang citybtn" id="city_C">City C</a>
+						<a href="/provider_cityinfo/city_A" class="btn_ang citybtn" id="city_A">City A</a>
 					</div>
 				</div>
 			</div>
@@ -116,9 +114,11 @@
 	    				<td>sample</td>
 	    				<td>ㅛㅛㅛㅛ ㅡㅡ ㅇㅇ ㅗㅗ:ㅡㅡ</td>
 	    				<td>예제임</td>
-	    				<td><button type="button" id="sample" class="btn_ang" 
-	    					data-toggle="modal" data-target="#modal_userDetail">보기</button></td>
-	    			</tr>
+	    				<td>
+	    					<button type="button" id="sample" class="btn_ang" 
+	    					onclick="userDetailClicked(id)" data-toggle="modal" data-target="#modal_userDetail">보기</button>
+	    				</td>
+	    			</tr> 
 	    		</table>
 	    	</div>
 						</div>
@@ -197,6 +197,7 @@
 				  				<td id="detail_address">경기도 수원시 여러분</td>
 				  			</tr>
 				  		</table>
+				  		<div class="divline_60"></div>
 				  		<table id="table_userDevice" class="table_ang">
 				  			<tbody>
 				  				<tr><th colspan="4">등록한 기기 목록</th></tr>

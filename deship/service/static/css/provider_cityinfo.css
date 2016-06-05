@@ -96,19 +96,13 @@ body
 #container_SVG
 {
 	display:block;
-	margin:auto;
+	margin:auto auto;
 	width:auto;
-}
-#chart_cluster_util
-{
-	padding-left:80px;
 }
 #container_SVG>h3
 {
-	position:relative;
-	top:-14px;
-	margin-top:0px;
-	margin-bottom:25px;
+	margin-top:0px !important;
+	margin-bottom:20px;
 }
 #container_PiSVG
 {
@@ -198,6 +192,10 @@ body
 	width:85%;
 	border-top:1px solid #d0d0d0;
 }
+#chart_cluster_thrp
+{
+	margin : 15px auto;
+}
 /**********************************/
 
 /***** 기기 & 사용자 정보 컨테이너 스타일 시트 *****/
@@ -209,13 +207,13 @@ body
 	margin-top:20px;
 	padding-top:30px;
 }
-#btn_3rdlist
+#btn_Cooplist
 {
 	margin:4px 4px;
 	font-size:13pt;
 	background-color:RGBA(33,222,55,0.6);
 }
-#btn_add3rd
+#btn_addCoop
 {
 	margin:4px 4px;
 	font-size:13pt;
@@ -259,11 +257,11 @@ body
 	color:white;
 	border:0px;
 }
-#col_3rdlist
+#col_Cooplist
 {
 	margin:15px 15px;
 }
-#col_3rdlist>div
+#col_Cooplist>div
 {
 	border:0px;
 }

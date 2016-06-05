@@ -2711,182 +2711,94 @@ var Nwagon_ie = {
         }
     }
 };
+////////////////////////////// END OF Nwagon ///////////////////////////////////////
 
-////////////////////////////////////////////////////////////
 
-// 기기 등록 : Ajax-JSON, POST로 서버에 정보 전달
-function addDevice()
-{
-			var SN = $("#register_SN").val();
-			var name = $("#register_device_name").val();
-			var type = $("#register_device_type").val();
-			var date = $("#register_productive_date").val();
-			$.ajax({
-				type : 'POST',
-				url : '/reg_device',
-				dataType : 'json',
-				data :
-				{
-						"SN" : SN,
-						"device_name" : name,
-						"device_type" : type,
-						"productive_date" : date
-				}
-			});
-}
-
-// 기기 목록 조회 : Ajax-JSON
+var ID_thisCity = "abcd";
+// 클러스터 노드 상태 인포그래픽
 $(function(){
+	var total;
+	var connected;
+	var utilized;
 	$.ajax({
 		type:'GET',
-		url:"/device_list",
+		url:"/cluster/status",
+		async: false,
 		dataType:'json',
-		success:function(data){
-			device_list = data['devicelist'];
-			$.each(device_list, function(entryIndex, entry){
-				$("#table_device_h").after(
-					"<tr><td>"+entry.SN+"</td><td>"+entry.device_type+"</td><td>"+entry.device_name+"</td><td>"+entry.productive_date+"</td></tr>");
-			});
-		}
-	});
-});
-// 사용자 목록 조회 : Ajax-JSON
-$(function(){
-	$.ajax({
-		type:'GET',
-		url:"/user_list",
-		dataType:'json',
-		success:function(data){
-			user_list = data['userlist'];
-			$.each(user_list, function(entryIndex, entry){
-				$("#table_user_h").after(
-						"<tr><td>"+entry.ID+"</td><td>"+entry.reg_date+"</td><td>"+entry.user_name+"</td><td><button type=\"button\" id=\""+entry.ID+"\" class=\"btn_ang\" onclick=\"userDetailClicked(id)\" data-toggle=\"modal\" data-target=\"#modal_userDetail\">보기</button></td></tr>"
-					);
-			});		
-		}
-	});
-});
-
-// 도시 목록 조회 : Ajax-JSON
-$(function (){
-	$.ajax({
-		type:'GET',
-		url:"/city",
-		dataType:'json',
-		success:function(data){
-			cityList = data['citylist'];
-			$.each(cityList, function(entryIndex, entry){
-				$("#btnlist_city").append(
-					"<a href=\"/provider_cityinfo/"+entry.id+"\" class=\"btn_ang citybtn\" id=\""+entry.id+"\">"+entry.name+"</a>"
-				);
-			});		
-		}
-	});
-}); 
-
-// 도시영역 상세정보 조회
-function cityinfo(thisID)
-{
-	var URLis="/provider_cityinfo/"+thisID;
-	$.ajax({
-		type:'GET',
-		url:URLis,
-		dataType:'json',
-		success:function(data){
-						
-		}
-	});
-}
-
-// 사용자 상세 정보 확인 : Ajax-JSON
-function userDetailClicked(thisID)
-{
-	//alert(thisID);
-	$.ajax({
-		type:'GET',
-		url:"/user_info",
-		dataType:'json',
-		success:function(data){
-			var userInfo = data[userlist];
-			$.each(userInfo, function(entryIndex, entry){
-				if(entry.ID == thisID){
-					$("#detail_ID").html(entry.ID);
-					$("#detail_reg_date").html(entry.reg_date);
-					$("#detail_user_name").html(entry.user_name);
-					$("#detail_phone").html(entry.phone);
-					$("#detail_address").html(entry.address);
-				}
-			});
+		success:function(recv){
+			data = recv.status
+			total = data.total;
+			connected = data.connected;
+			utilized = data.utilized; 
 		}
 	});
 	
-	var url = "/user_devlist/";
-	url += thisID;
-	$.ajax({
-		type:'GET',
-		url:url,
-		dataType:'json',
-		success:function(data2){
-			var devlist = data2[device_list];
-			$.each(devlist, function(entryIndex, entry){
-				$("#tr_userDevice").after(
-					"<td>"+entry.SN+"</td>"+
-				  	"<td>"+entry.device_name+"</td>"+
-				  	"<td>"+entry.device_type+"</td>"+
-				  	"<td>"+entry.productive_date+"</td>"
-				);
-			});	
-		}
-	});
-}
-
-// 총 노드 갯수 테스트
-var total = {"total":15000};
-var date =
-{
-	"date":['11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28']
-};
-
-var nodes = 
-{"a1":"13000", "a2":"13010"};
-
-// 총 노드 갯수 Pi그래프, Line그래프
-$(function(){
-	$("#nodes_stat_num").html("<strong>"+total.total+"</strong>");
-	$("#nodes_stat_num2").html(total.total);
+	$("#nodes_stat_num").html("<strong>"+total+"</strong>");
+	$("#nodes_stat_num_p").html("<strong>"+total+" nodes</strong>");
 	var options = {
 		'dataset':{
 			title: 'nodes status',
-			values: [total.total],
-			colorset: ['#FF2424', '#FFFFFF'],
+			values:[total],
+			colorset: ['#D1B2FF', '#FFFFFF'],
 			fields: ['Nodes', ''],
 		},
-		'donut_width' : 30,
-		'core_circle_radius':40,
+		'donut_width' : 25,
+		'core_circle_radius':30,
 		'chartDiv': 'cluster_nodes_stat',
 		'chartType': 'donut',
 		'chartSize': {width:290, height:150}
 	};
-	Nwagon.chart(options);	
+	Nwagon.chart(options);
 	
-	var options_line = {
-		'legend':{names: date.date},
-		'dataset':{title:'서비스 참여 노드 추이', 
-			values: [[nodes.a1], [nodes.a2], [14100], [14290], [14320], 
-			[14400], [14480], [14510], 
-			[14570], [14650], [14690], [14750],
-			 [14790], [14890], [14920], [14960], [14900], [15000]],
-			colorset: ['#489CFF'],
-			fields:['Nodes']},
-		'chartDiv' : 'chart_cluster_util',
-		'chartType' : 'line',
-		'leftOffsetValue': 45,
-		'bottomOffsetValue': 30,
-		'chartSize' : {width:820, height:300},
-		'minValue' :12000,
-		'maxValue' : 16000,
-		'increment' : 400,
-		'isGuideLineNeeded' : true //default set to false
-		};
-		Nwagon.chart(options_line);
+	$("#active_stat_num").html("<strong>"+connected+"</strong>");
+	$("#active_stat_num_p").html("<strong>"+connected+" nodes</strong>");
+	var options = {
+		'dataset':{
+			title: 'activated nodes status',
+			values:[connected],
+			colorset: ['#98F791', '#FFFFFF'],
+			fields: ['Activated', ''],
+		},
+		'donut_width' : 25,
+		'core_circle_radius':30,
+		'chartDiv': 'cluster_active_stat',
+		'chartType': 'donut',
+		'chartSize': {width:290, height:150}
+	};
+	Nwagon.chart(options);
+	
+	$("#util_stat_num").html("<strong>"+utilized+"</strong>");
+	$("#util_stat_num_p").html("<strong>"+utilized+" %</strong>");
+	var options = {
+		'dataset':{
+			title: 'Utilization status',
+			values:[utilized, 100-utilized],
+			colorset: ['#FF7012', '#FFFFFF'],
+			fields: ['Utilization', ''],
+		},
+		'donut_width' : 25,
+		'core_circle_radius':30,
+		'chartDiv': 'cluster_util_stat',
+		'chartType': 'donut',
+		'chartSize': {width:290, height:150}
+	};
+	Nwagon.chart(options);
 });
+
+// 협력업체 등록
+function addCoop()
+{
+	var name = $("#register_Coop_name").val();
+	var category = $("#register_Coop_category").val();
+	var address= $("#register_Coop_address").val();
+	$.ajax({
+		type : 'POST',
+		url : '/reg_coop',
+		dataType : 'json',
+		data :
+		{
+				"name":name,
+				"category":category
+		}
+	});
+}

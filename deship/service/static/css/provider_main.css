@@ -398,7 +398,11 @@ body
 }
 #table_userDevice
 {
-	border-top:1px solid #D0D0D0;	
+	margin-top:9px;	
+}
+#tr_userDevice
+{
+	padding-bottom : 10px !important;
 }
 #table_userDetail>tbody>tr>th
 {
@@ -409,10 +413,11 @@ body
 	padding-left:15px;
 	text-align:left !important;
 }
-#table_userDevice>tbody:first-child
+.divline_60
 {
-	font-weight:bold;
-	text-align:center;
-	font-size:12pt;
+	height:1px;
+	width:60%;
+	border-top:1px solid #D0D0D0;
+	margin:15px auto;
 }
-/**********************************/
+/**********************************/ 
