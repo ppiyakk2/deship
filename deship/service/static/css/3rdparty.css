@@ -1,0 +1,173 @@
+@charset "utf-8";
+body
+{
+	font-family: 'Nanum Barun Gothic', 'Nanum Gothic', '돋움', sans-serif;
+	background-color:RGBA(222,222,222,0.1);
+}
+/*********** 최상단 헤더 바 **************/
+#container_navbar_top
+{
+	background-color:#FF4848;
+	height:59px;
+	position:fixed;
+	z-index:999;
+	top:0;
+	width:100%;
+	border-bottom:2px solid #FFFFFF;
+}
+#header_navbar_top
+{
+    position : fixed;  
+    vertical-align:middle;
+	padding-top:5pt;
+	padding-left : 15pt;
+	color:white;
+	font-weight:100;
+	font-size:24pt;
+}
+#name_navbar_top
+{
+	color:white;
+	font-size:13pt;
+	text-align:center;
+	float:right;	
+	padding-top:15px;
+	padding-right:15px;
+}
+#btn_navbar_top_bottom
+{
+	background-color:transparent;
+	text-align:center;
+	border:0px;  
+	padding:15pt 15pt;
+	color:#FFFFFF;
+	font-size:18px;
+	font-weight:100;
+	float:right;
+}
+#btn_navbar_top_bottom:hover
+{
+	background-color:RGBA(255,255,255,0.1);
+}
+#btn_navbar_top_back
+{
+	background-color:transparent;
+	text-align:center;
+	border:0px; 
+	padding:13pt 10pt;
+	color:#FFFFFF;
+	font-size:18px;
+	font-weight:100;
+}
+#btn_navbar_top_back:hover
+{
+	background-color:RGBA(255,255,255,0.1);
+}
+/**********************************/
+
+/************ 몸통 스타일 *************/
+#container_body
+{
+	background-color:white;
+	height:auto;
+	text-align:center;
+	padding-top:70px;
+	margin-left:15%;
+	margin-right:15%;
+	padding-bottom:40px;
+	margin-bottom:3%;
+	margin-top:50px;
+}
+#mainlogo
+{
+	margin-top:20px;
+	padding-top:20px;
+	margin-bottom:15px;
+	font-size:35pt;
+	font-weight:bold;
+}
+#3rdlogo
+{
+	width:200px; height:200px;
+}
+#mainlogo>span
+{
+	padding-left:20px;
+}
+
+#container_requestboard
+{
+	margin:auto auto;
+	width:80%;
+	margin-top:40px;
+	padding-top:15px;
+	padding-bottom:30px;
+	border-top:1px solid #D0D0D0; 
+}
+#map
+{
+	padding-top : 20px;
+	margin:auto; auto;
+	margin-top:30px;
+	border-top:1px solid #D0D0D0;
+	width:450px;
+	height:350px;
+}
+#table_request
+{
+	margin:auto auto;
+	width:102%;
+}
+#table_request>tbody
+{
+	margin:auto auto;
+}
+#table_request>tbody>tr>th
+{
+	text-align:center !important;
+	font-size:12pt !important;
+	padding-top:5px;
+	padding-bottom:15px;
+}
+#table_request>tbody>tr>td
+{
+	text-align:center !important;
+	font-size:11pt;
+	padding-left:8px;
+	padding-right: 9px;
+	padding-top:5px;
+	padding-bottom:5px;
+}
+/*********************************/
+/*********** 컴포넌트 디자인  **********/
+.btn_ang
+{
+	background-color:RGBA(0,210,255,0.9);
+	color:white;
+	border:0px;
+	border-radius:2px;
+}
+#ul_request >li
+{
+	margin:8px auto;
+}
+li
+{
+	list-style-type:none;
+}
+th
+{
+	padding:5px 8px;
+	text-align:right;
+}
+td
+{
+	padding:5px 8px;	
+	text-align:left;
+}
+#mapInModal
+{
+	margin:auto auto;
+	padding-top:20px;
+	width:auto;
+}

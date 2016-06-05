@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    	<!-- 메타 정보 및 스타일 시트 연동 -->
+   		<meta charset="utf-8">
+        <title>3rd Party dashboard</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link type="text/css" href="/static/css/bootstrap.css" rel="stylesheet"/>
+        <link type="text/css" href="/static/css/fontbase.css" rel="stylesheet"/>
+        <link type="text/css" href="/static/css/3rdparty.css" rel="stylesheet"/>
+        <!-- JQuery, Ajax, 부트스트랩 컴포넌트 연동 -->
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	    <script src="/static/js/3rdparty.js"></script>
+		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZsO7B0GTo-FFgdz2SByGxzqW96ZnG6aE&callback=initMap"></script>
+		<script src="/static/js/bootstrap.js"></script>	
+    </head>
+	
+    <body>
+    	<div id="container_navbar_top">
+			<button id="btn_navbar_top_back" class="glyphicon glyphicon-menu-left"></button>
+			<span id="header_navbar_top">소비자 요청 현황판</span>
+			<button id="btn_navbar_top_bottom" class="glyphicon glyphicon-menu-down"></button>
+			<span id="name_navbar_top">KHU 가전 종합수리점 - 경희대점</span>
+		</div>
+    	<div id="container_body">
+    		<div id="mainlogo">
+    			<img src="/static/imgs/3rd logo.png" width="100px" height="90px"/>
+    			<span>KHU 가전 종합수리점 - 경희대점</span>
+    		</div>
+    		<h3 id="header_body">요청 현황판 | Requests Dashboard</h3>
+	    	<div id="container_requestboard">
+	    		<table id="table_request">
+	    			<tr>
+	    				<th>제품명</th>
+	    				<th>요청 내용</th>
+	    				<th>주소</th>
+	    				<th>요청 시간</th>
+	    				<th>상세정보</th>
+	    			</tr>
+	    			<tr>
+	    				<td>액티브워시 16kg</td>
+	    				<td>회전 모터 고장</td>
+	    				<td>경희대학교 국제캠퍼스 우정원 2570호</td>
+	    				<td>18:44 MAY 20, 2016</td>
+	    				<td><button type="button" id="btn_10001" class="btn_ang" 
+					data-toggle="modal" data-target="#modal_detail">확인</button></td>
+	    			</tr>
+	    			<tr>
+	    				<td>애드워시 17kg</td>
+	    				<td>소모품 구매</td>
+	    				<td>경희대학교 국제캠퍼스 우정원 2635호</td>
+	    				<td>18:53 MAY 20, 2016</td>
+	    				<td><button type="button" id="btn_10002" class="btn_ang" 
+					data-toggle="modal" data-target="#modal_detail">확인</button></td>
+	    			</tr>
+	    			<tr>
+	    				<td>무풍에어컨 Q9500</td>
+	    				<td>방문 진단</td>
+	    				<td>경희대학교 국제캠퍼스 우정원 2503호</td>
+	    				<td>19:09 MAY 20, 2016</td>
+	    				<td><button type="button" id="btn_10003" class="btn_ang" 
+					data-toggle="modal" data-target="#modal_detail">확인</button></td>
+	    			</tr>
+	    			<tr>
+	    				<td>패밀리 허브 837</td>
+	    				<td>디스플레이 고장</td>
+	    				<td>경희대학교 국제캠퍼스 전자정보대학</td>
+	    				<td>19:20 MAY 20, 2016</td>
+	    				<td><button type="button" id="btn_10003" class="btn_ang" 
+					data-toggle="modal" data-target="#modal_detail">확인</button></td>
+	    			</tr>
+	    			<tr>
+	    				<td>커브드 SUHD TV</td>
+	    				<td>방문 진단</td>
+	    				<td>경희대학교 국제캠퍼스 학생회관</td>
+	    				<td>19:21 MAY 20, 2016</td>
+	    				<td><button type="button" id="btn_10003" class="btn_ang" 
+					data-toggle="modal" data-target="#modal_detail">확인</button></td>
+	    			</tr>
+	    		</table>
+	    	</div>
+	    	<div id="map">
+				<!--<iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJTYWP0t1EezUR_YS-z2DtQM4&key=AIzaSyDqnsAA8pYGG44GOxKSAz4zAhukrqIlu5E" allowfullscreen></iframe>  	-->
+			</div>
+    	</div>
+    	
+    	
+    	<!-- Modal -->
+		<div class="modal fade" id="modal_detail" tabindex="-1" role="dialog" 
+		aria-labelledby="modal_add3rd" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel">요청 상세정보</h4>
+				  	</div>
+				  	<div class="modal-body">
+				    	<table id="table_detail">
+				    		<tr>
+				    			<th>S/N</th>
+				    			<td>10001</td>
+				    		</tr>
+				    		<tr>
+				    			<th>사용자명</th>
+				    			<td>KHUuser1</td>
+				    		</tr>
+				    		<tr>
+				    			<th>제품명</th>
+				    			<td>액티브워시 16kg WA16J6850KS 실버</td>
+				    		</tr>
+				    		<tr>
+				    			<th>등록 일자</th>
+				    			<td>14:28 MAY 2, 2016</td>
+				    		</tr>
+				    		<tr>
+				    			<th>요청 내용</th>
+				    			<td>회전 모터 고장(msg:fault_RM101)</td>
+				    		</tr>
+				    		<tr>
+				    			<th>품목/수량</th>
+				    			<td>RM101 회전모터, 1EA</td>
+				    		</tr>
+				    		<tr>
+				    			<th>주소</th>
+				    			<td>경기도 용인시 기흥구 서천동 덕영대로 1732 경희대학교 국제캠퍼스 우정원 2570호</td>
+				    		</tr>
+				    		<tr>
+				    			<th>요청 시간</th>
+				    			<td>18:44 MAY 20, 2016</td>
+				    		</tr>
+				    	</table>
+				    	<div id="mapInModal">
+				    		<iframe width="550" height="350" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJTYWP0t1EezUR_YS-z2DtQM4&key=AIzaSyDqnsAA8pYGG44GOxKSAz4zAhukrqIlu5E" allowfullscreen></iframe>  	
+						</div>
+				  	</div>
+				  	<div class="modal-footer">
+				  		<button type="button" class="btn_ang" data-dismiss="modal">확인</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	<!-- 본문 종료 -->
+    </body>
+</html>
