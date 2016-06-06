@@ -219,6 +219,10 @@ body
 	font-size:13pt;
 	background-color: RGBA(44,77,222,0.6);
 }
+#div_cityID
+{
+	display:none;
+}
 /**********************************/
 
 /***** 별도의 컴포넌트 스타일 시트 *****/
@@ -264,5 +268,60 @@ body
 #col_Cooplist>div
 {
 	border:0px;
+}
+.table_ang
+{
+	margin:auto auto;
+	width:102%;
+}
+.table_ang>tbody
+{
+	margin:auto auto;
+}
+.table_ang>tbody>tr>th
+{
+	text-align:center;
+	font-size:11pt;
+	padding-left:8px;
+	padding-right:8px;
+	padding-top:4px;
+	padding-bottom:4px;
+}
+.table_ang>tbody>tr>td
+{
+	text-align:center;
+	font-size:10pt;
+	padding-left:8px;
+	padding-right:8px;
+	padding-top:4px;
+	padding-bottom:4px;
+}
+.btn_ang
+{
+	background-color:RGBA(0,210,255,0.9);
+	color:white;
+	border:0px;
+	border-radius:2px;
+}
+.btn_ang:hover
+{
+	background-color:RGBA(0,190,245,0.9);
+	font-style:normal;
+	color:white;
+	text-decoration:none;
+}
+.btn_ang:active
+{
+	color:white;
+	text-decoration:none !important;
+}
+.btn_ang:visited
+{
+	text-decoration:none !important;
+	color:white;
+}
+.btn_ang:focus
+{
+	text-decoration:none;
 }
 /**********************************/

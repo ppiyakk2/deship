@@ -14601,6 +14601,14 @@
 	//#endregion Public API
 })();
 
+/*
+ * 
+
+var tcID = "미정";	// 해당 도시영역의 고유 ID
+$(function(){
+	tcID = $("#div_cityID").html();
+});
+
 // 클러스터 처리율 라이브-데이터 그래프
 	window.onload = function () {
 
@@ -14639,25 +14647,29 @@
 		var yVal = 100;	
       	var xVal2= 0;
       	var yVal2= 100;
-		var updateInterval = 250;
-		var dataLength = 300; // number of dataPoints visible at any point
+		var updateInterval = 501;
+		var dataLength = 200; // number of dataPoints visible at any point
 
 		var updateChart = function (count) {
 			count = count || 1;
 			// count is number of times loop runs to generate random dataPoints.
 			
+			var URLis="/city/";
+			URLis += tcID +"/throughput";
 			for (var j = 0; j < count; j++) {	
-				$.ajax({
-					type:'GET',
-					url:"/cluster/throughput",
-					dataType:'json',
-					async: false,
-					success:function(data)
-					{
-						yVal = data.throughput.read;
-						yVal2 = data.throughput.write;
-					}
-				});
+				if(j%500==0){
+					$.ajax({
+						type:'GET',
+						url:URLis,
+						dataType:'json',
+						async: false,
+						success:function(data)
+						{
+							yVal = data.throughput.read;
+							yVal2 = data.throughput.write;
+						}
+					});
+				}
 				dps.push({x:xVal, y:yVal}); xVal++;
 				dps2.push({x:xVal2, y:yVal2}); xVal2++;
 				

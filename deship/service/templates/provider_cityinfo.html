@@ -19,6 +19,7 @@
 	<script src="/static/js/canvasjs.js"></script>
 	
     <body>
+		<div id="div_cityID">{{city_id}}</div>
     	<!-- 최상단 소형 헤더 -->
 		<div id="container_navbar_top">
 			<a href="/" id="btn_navbar_top_back" class="glyphicon glyphicon-menu-left"></a>
@@ -126,12 +127,18 @@
 					
 					<div class="collapse" id="col_Cooplist">
 						<div class="well">
-							<ul>
-								<li>조성수의 가전 소모품 판매점</li>
-								<li>정회운의 가전 수리점</li>
-								<li>김태경의 가전 설비 시공점</li>
-								<li>경희 가전 판매 대리점</li>
-							</ul>
+							<table id="table_Cooplist" class="table_ang">
+				    			<tr id="tr_Cooplist">
+				    				<th>업체명</th>
+				    				<th>업체 유형</th>
+				    				<th>Telehash ID</th>
+				    			</tr>
+				    			<tr>
+				    				<td>샘플샘플</td>
+				    				<td>예제임</td>
+				    				<td><button id="sample" class="btn_ang" onclick="show_telehash(id)">받기</button></td>
+				    			</tr>
+				    		</table>
 						</div>
 					</div>
 				</div>			

@@ -2754,7 +2754,7 @@ $(function(){
 $(function(){
 	$.ajax({
 		type:'GET',
-		url:"/user_list",
+		url:"/users",
 		dataType:'json',
 		success:function(data){
 			user_list = data['userlist'];
@@ -2804,10 +2804,10 @@ function userDetailClicked(thisID)
 	//alert(thisID);
 	$.ajax({
 		type:'GET',
-		url:"/user_info",
+		url:"/users/"+thisID,
 		dataType:'json',
 		success:function(data){
-			var userInfo = data[userlist];
+			var userInfo = data["userlist"];
 			$.each(userInfo, function(entryIndex, entry){
 				if(entry.ID == thisID){
 					$("#detail_ID").html(entry.ID);
@@ -2820,22 +2820,22 @@ function userDetailClicked(thisID)
 		}
 	});
 	
-	var url = "/user_devlist/";
-	url += thisID;
+	var URLis = "/users/"+thisID;
+	URLis += "/devices";
 	$.ajax({
 		type:'GET',
-		url:url,
+		url:URLis,
 		dataType:'json',
 		success:function(data2){
-			var devlist = data2[device_list];
+			var devlist = data2["devicelist"];
+			var content = "<tr><th>제품 번호</th><th>제품명</th><th>제품 유형</th><th>생산 일시</th></tr><tr><td>SAMPLE123</td>	<td>예시제품</td><td>전시품</td><td>YYYY MM DD HH:mm</td></tr>";
 			$.each(devlist, function(entryIndex, entry){
-				$("#tr_userDevice").after(
-					"<td>"+entry.SN+"</td>"+
-				  	"<td>"+entry.device_name+"</td>"+
-				  	"<td>"+entry.device_type+"</td>"+
-				  	"<td>"+entry.productive_date+"</td>"
-				);
+				content+=	"<tr><td>"+entry.SN+"</td>"+		
+				  			"<td>"+entry.device_name+"</td>"+
+				  			"<td>"+entry.device_type+"</td>"+
+				  			"<td>"+entry.productive_date+"</td></tr>";
 			});	
+			$("#tr_userDevice").html(content);
 		}
 	});
 }

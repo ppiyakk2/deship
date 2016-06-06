@@ -2714,19 +2714,25 @@ var Nwagon_ie = {
 ////////////////////////////// END OF Nwagon ///////////////////////////////////////
 
 
-var ID_thisCity = "abcd";
+var tcID = "미정";	// 해당 도시영역의 고유 ID
+$(function(){
+	tcID = $("#div_cityID").html();
+});
+
 // 클러스터 노드 상태 인포그래픽
 $(function(){
 	var total;
 	var connected;
 	var utilized;
+	var URLis = "/city/";
+	URLis += tcID+"/status";
 	$.ajax({
 		type:'GET',
-		url:"/cluster/status",
+		url:URLis,
 		async: false,
 		dataType:'json',
 		success:function(recv){
-			data = recv.status
+			data = recv.status;
 			total = data.total;
 			connected = data.connected;
 			utilized = data.utilized; 
@@ -2799,6 +2805,43 @@ function addCoop()
 		{
 				"name":name,
 				"category":category
+		}
+	});
+}
+
+// 협력업체 목록 조회
+$(function(){
+	$.ajax({
+			type:'GET',
+			url:'/coop_list',
+			dataType:'json',
+			success:function(data){
+				var cooplist = data["cooplist"];
+				var category = "미정";
+				$.each(cooplist, function(entryIndex, entry){
+					if(entry.category == "sell")
+						category == "판매업";
+					else if(entry.category == "fix")
+						category == "수리업";
+					$("#tr_Cooplist").after("<tr>"+
+				    				"<td>"+entry.name+"</td>"+
+				    				"<td>"+category+"</td>"+
+				    				"<td><button id=\""+entry.coop_id+"\" class=\"btn_ang\" onclick=\"show_telehash(id)\">받기</button></td></tr>");
+				});
+			}
+		}
+	);
+	
+});
+
+function show_telehash(thisID){
+	var URLis = "/"+thisID;
+	URLis += "/telehash";	
+	$.ajax({
+		type:'GET',
+		url:URLis,
+		dataType:'html',
+		success:function(data){
 		}
 	});
 }
