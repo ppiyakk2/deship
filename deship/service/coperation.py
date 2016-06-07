@@ -1,24 +1,27 @@
+from flask import request, jsonify
 
-import json
-from . import app
-from flask import Flask, request, jsonify, send_file, send_from_directory
 from deship.database import cooperation
+from deship.database.models import Cooperations
+from . import app
 
-@app.route("/reg_cooperation", methods=['POST'])
+
+@app.route("/cooperation", methods=['POST'])
 def coop():
-    curcoop = request.json
-    with open("/home/pi/deship/deship/cooperation_list.txt", "a") as f :
-        f.write(json.dumps(curcoop))
-        f.write("\n")
+    curcoop = request.values
+    cooperation.save(curcoop)
     return "good"
 
 
-@app.route("/coop_list")
-def print_cooplist():
-    cooplist = cooperation.getcoop()
-    return jsonify(cooplist = cooplist)
+@app.route("/cooperation", methods=['GET'])
+def get_coops():
+    return jsonify(cooperations=Cooperations.select_all())
 
 
-@app.route("/<coop_ID>/telehash", methods=['GET'])
+@app.route("/cooperation/<coop_ID>/telehash", methods=['GET'])
 def telehashfile(coop_ID):
-    return send_file("/home/pi/deship/deship/iu.jpg", as_attachment=True)
+    import flask
+    priv_key = Cooperations.select_pk_by_id(coop_ID)
+    response = flask.Response(priv_key)
+    response.headers['Content-Type'] = "application/octet-stream"
+    response.headers['Content-Disposition'] = "inline; filename=seed_id"
+    return response

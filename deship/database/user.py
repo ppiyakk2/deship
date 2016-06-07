@@ -1,15 +1,9 @@
-import json
+from .models import User
 
 
-def addUserInfo(userinfo):
-    f = open("/home/pi/deship/deship/user_Info.txt", 'a')
-    f.write(json.dumps(userinfo))
-    f.write("\n")
-    f.close()
-    return 'good'
+def get_user_by_id(user_id):
+    return User.select_id(user_id)
+
 
 def getAllUser():
-    l = None
-    with open("/home/pi/deship/deship/user_Info.txt", 'r') as f:
-        l = json.load(f)
-    return l
+    return User.select_all()
