@@ -14601,9 +14601,6 @@
 	//#endregion Public API
 })();
 
-/*
- * 
-
 var tcID = "미정";	// 해당 도시영역의 고유 ID
 $(function(){
 	tcID = $("#div_cityID").html();

@@ -2791,7 +2791,7 @@ function cityinfo(thisID)
 	$.ajax({
 		type:'GET',
 		url:URLis,
-		dataType:'json',
+		dataType:'html',
 		success:function(data){
 						
 		}
@@ -2807,16 +2807,12 @@ function userDetailClicked(thisID)
 		url:"/users/"+thisID,
 		dataType:'json',
 		success:function(data){
-			var userInfo = data["userlist"];
-			$.each(userInfo, function(entryIndex, entry){
-				if(entry.ID == thisID){
-					$("#detail_ID").html(entry.ID);
-					$("#detail_reg_date").html(entry.reg_date);
-					$("#detail_user_name").html(entry.user_name);
-					$("#detail_phone").html(entry.phone);
-					$("#detail_address").html(entry.address);
-				}
-			});
+			var userInfo = data["user"];
+					$("#detail_ID").html(userInfo.ID);
+					$("#detail_reg_date").html(userInfo.reg_date);
+					$("#detail_user_name").html(userInfo.user_name);
+					$("#detail_phone").html(userInfo.phone);
+					$("#detail_address").html(userInfo.address);
 		}
 	});
 	
