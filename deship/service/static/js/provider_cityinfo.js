@@ -2799,12 +2799,13 @@ function addCoop()
 	var address= $("#register_Coop_address").val();
 	$.ajax({
 		type : 'POST',
-		url : '/reg_coop',
+		url : "/cooperation",
 		dataType : 'json',
 		data :
 		{
 				"name":name,
-				"category":category
+				"category":category,
+				"cityid":tcID
 		}
 	});
 }
@@ -2813,7 +2814,7 @@ function addCoop()
 $(function(){
 	$.ajax({
 			type:'GET',
-			url:'/coop_list',
+			url:'/cooperation',
 			dataType:'json',
 			success:function(data){
 				var cooplist = data["cooplist"];
@@ -2835,12 +2836,12 @@ $(function(){
 });
 
 function show_telehash(thisID){
-	var URLis = "/"+thisID;
+	var URLis = "/cooperation/"+thisID;
 	URLis += "/telehash";	
 	$.ajax({
 		type:'GET',
 		url:URLis,
-		dataType:'html',
+		dataType:'file',
 		success:function(data){
 		}
 	});

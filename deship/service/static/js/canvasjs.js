@@ -14601,6 +14601,9 @@
 	//#endregion Public API
 })();
 
+//////////////////////////// End of CanvasJS /////////////////////////////////
+
+
 var tcID = "미정";	// 해당 도시영역의 고유 ID
 $(function(){
 	tcID = $("#div_cityID").html();
@@ -14641,7 +14644,7 @@ $(function(){
 		});
 
 		var xVal = 0;
-		var yVal = 100;	
+		var yVal = 10;	
       	var xVal2= 0;
       	var yVal2= 100;
 		var updateInterval = 501;
