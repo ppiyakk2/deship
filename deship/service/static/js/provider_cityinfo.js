@@ -2719,6 +2719,22 @@ $(function(){
 	tcID = $("#div_cityID").html();
 });
 
+// 해당 도시 정보 획득
+$(function(){
+	var URLis = "/cityname/";
+	URLis += tcID;
+	$.ajax({
+		type:'GET',
+		url:URLis,
+		dataType:'json',
+		success:function(data)
+		{
+			var cityname = data.name;
+			$("#cityname").html("<em>"+data.name+"</em>");
+		}	
+	});
+});
+
 // 클러스터 노드 상태 인포그래픽
 $(function(){
 	var total;

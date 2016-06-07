@@ -14644,10 +14644,10 @@ $(function(){
 		});
 
 		var xVal = 0;
-		var yVal = 10;	
+		var yVal = 0;	
       	var xVal2= 0;
-      	var yVal2= 100;
-		var updateInterval = 501;
+      	var yVal2= 0;
+		var updateInterval = 250;
 		var dataLength = 200; // number of dataPoints visible at any point
 
 		var updateChart = function (count) {
@@ -14657,12 +14657,12 @@ $(function(){
 			var URLis="/city/";
 			URLis += tcID +"/throughput";
 			for (var j = 0; j < count; j++) {	
-				if(j%500==0){
+				if(j%250==0){
 					$.ajax({
 						type:'GET',
 						url:URLis,
 						dataType:'json',
-						async: false,
+						async: true,
 						success:function(data)
 						{
 							yVal = data.throughput.read;
