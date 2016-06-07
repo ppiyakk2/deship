@@ -1,16 +1,13 @@
 import json
 
+from .models import Device
 
-def addDeviceInfo(deviceinfo):
-    f = open("/home/pi/deship/deship/device_Info.txt", 'a')
-    f.write(json.dumps(deviceinfo))
-    f.write("\n")
-    f.close()
-    return 'good'
+
+def addDeviceInfo(info):
+    device = Device(info['SN'], info['device_name'], info['device_type'],
+                    info['productive_date'])
+    device.save()
 
 
 def getAllDevice():
-    l = None
-    with open("/home/pi/deship/deship/device_Info.txt", 'r') as f:
-        l = json.load(f)
-    return l
+    return Device.select_all()

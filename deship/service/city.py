@@ -12,24 +12,28 @@ def get_city_list():
 
 @app.route('/city/<id>/status', methods=['GET'])
 def city_cluster_status(id):
-    print id
-    return jsonify(status=get_cluster_status())
+    c = city.get_city_by_id(id)
+    if c is None:
+        return jsonify(msg="Wrong City ID"), 404
+    return jsonify(status=get_cluster_status(c['url']))
 
 
 @app.route('/city/<id>/throughput', methods=['GET'])
 def city_cluster_throughput(id):
-    print id
-    return jsonify(throughput=get_cluster_throughput())
+    c = city.get_city_by_id(id)
+    if c is None:
+        return jsonify(msg="Wrong City ID"), 404
+    return jsonify(throughput=get_cluster_throughput(c['url']))
 
 
-def get_cluster_status():
-    url = 'http://211.198.65.241:58090/cluster/status'
+def get_cluster_status(city_url):
+    url = '%s/cluster/status' % city_url
     r = requests.get(url)
     return r.json()
 
 
-def get_cluster_throughput():
-    url = 'http://211.198.65.241:58090/cluster/throughput'
+def get_cluster_throughput(city_url):
+    url = '%s/cluster/throughput' % city_url
     r = requests.get(url)
     return r.json()
 
