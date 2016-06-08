@@ -2,6 +2,7 @@ from flask import jsonify
 
 from . import app
 from deship.database import cluster
+from deship.config import bootnode_domain, bootnode_port
 
 
 @app.route('/cluster/status', methods=['GET'])
@@ -15,9 +16,11 @@ def cluster_status():
         utilized=utilized
     )
 
+
 @app.route('/cluster/bootnode', methods=['GET'])
 def get_bootnode():
-    return 'bootnode'
+    data = {'domain': bootnode_domain, 'port': bootnode_port}
+    return jsonify(bootnode=data)
 
 
 @app.route('/cluster/throughput', methods=['GET'])

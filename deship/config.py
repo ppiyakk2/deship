@@ -1,6 +1,9 @@
 
 root_path = None
 telehash_conf_path = None
+city_database = 'gyunggido'
+bootnode_domain = 'printf.kr'
+bootnode_port = 28015
 
 logging = {
     'version': 1,
