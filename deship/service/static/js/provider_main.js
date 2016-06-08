@@ -2837,14 +2837,7 @@ function userDetailClicked(thisID)
 }
 
 // 총 노드 갯수 테스트
-var total = {"total":15000};
-var date =
-{
-	"date":['11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28']
-};
-
-var nodes = 
-{"a1":"13000", "a2":"13010"};
+var total = {"total":2};
 
 // 총 노드 갯수 Pi그래프, Line그래프
 $(function(){
@@ -2865,7 +2858,7 @@ $(function(){
 	};
 	Nwagon.chart(options);	
 	
-	var options_line = {
+	/*var options_line = {
 		'legend':{names: date.date},
 		'dataset':{title:'서비스 참여 노드 추이', 
 			values: [[nodes.a1], [nodes.a2], [14100], [14290], [14320], 
@@ -2884,5 +2877,5 @@ $(function(){
 		'increment' : 400,
 		'isGuideLineNeeded' : true //default set to false
 		};
-		Nwagon.chart(options_line);
+		Nwagon.chart(options_line);*/
 });
