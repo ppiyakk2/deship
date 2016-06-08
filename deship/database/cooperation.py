@@ -1,3 +1,5 @@
+import requests
+
 from deship.messaging import gentool
 from deship.database.models import Cooperations, City
 
@@ -16,4 +18,5 @@ def save_to_city(city_url, city):
     url = "%s/party" % city_url
     data = {'name': city.name, 'telehash_id': city.id,
             'category': city.category}
-    pass
+    r = requests.post(url, data=data)
+
