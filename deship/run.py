@@ -34,7 +34,7 @@ if __name__ == '__main__':
     Logger.common_logger.info('Starting DESHIP Platform')
 
     service_pid = service_server.run_service()
-    message_pid = TelehashServer().run()
+    #message_pid = TelehashServer().run()
 
     signal.signal(signal.SIGTERM, sigterm)
     signal.signal(signal.SIGINT, sigterm)

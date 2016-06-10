@@ -2,6 +2,13 @@
 root_path = None
 telehash_conf_path = None
 
+database = {
+    'city_domain': 'printf.kr',
+    'city_port': 28015,
+    'service_domain': 'printf.kr',
+    'service_port': 28015
+}
+
 logging = {
     'version': 1,
     'disable_existing_loggers': True,
