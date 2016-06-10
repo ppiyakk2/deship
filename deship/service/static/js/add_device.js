@@ -43,9 +43,32 @@ function toMain()
 }
 
 // 장치 추가 시 입력한 SN에 해당하는 장치 정보 조회
+var device;
 function getDeviceInfo()
-{
-	
+{	//400 : 이미 등록, 404 : 장치 없음
+	var SN = $("#register_userid").val();
+	var URLis="/device/";
+	URLis += SN;
+	$.ajax({
+		type:"GET",
+		url:URLis,
+		dataType:"json",
+		succcess:function(data){	
+			alert("ㅇ");
+		},
+		statusCode:{
+			200:function(data){
+				device = data["device"];
+				alert(device.device_name);
+			},
+			400:function(){
+				alert("이미 등록된 장치입니다.");
+				},
+			404:function(){
+				alert("존재하지 않는 장치입니다.");		
+				}
+		}
+	});
 }
 
 // 장치 추가, 장치 정보를 서버로 전송

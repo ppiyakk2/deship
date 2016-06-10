@@ -23,9 +23,7 @@ function register()
 						"phone" : phone,
 						"address" : address
 				},
-				success: function(result){
-					location.reload();
-				},
+				
 				statusCode:{
 					200:function(){
 						alert("등록이 완료되었습니다.");
