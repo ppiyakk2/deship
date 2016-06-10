@@ -23,3 +23,9 @@ def add_device(serial_no, user_id):
 def list_devices():
     ldb, lcon = local_db(debug=True)
     return list(ldb.table('device').run(lcon))
+
+
+def get_device(serial_no):
+    db, con = service_db()
+    device = db.table('device').get(serial_no).run(con)
+    return device

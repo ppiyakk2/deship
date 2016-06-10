@@ -16,9 +16,25 @@ def device_registration():
     if re == 1:
         return 'No device', 404
     elif re == 2:
-        return 'Already registrated', 409
+        return 'Already registered', 409
 
     return 'done'
+
+
+@app.route('/device/<serial_no>', methods=['GET'])
+def get_device_info(serial_no):
+    if 'user_id' not in request.cookies:
+        return 'Login Required', 400
+
+    d = device.get_device(serial_no)
+
+    if d is None:
+        return 'No Device', 404
+
+    if d['user_id'] is not None:
+        return 'Already registered', 409
+
+    return jsonify(device=d)
 
 
 @app.route('/device', methods=['GET'])
