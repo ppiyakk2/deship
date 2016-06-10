@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    	<!-- 메타 정보 및 스타일 시트 연동 -->
+   		<meta charset="utf-8">
+        <title>IoT Client - Settings</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link type="text/css" href="/static/css/bootstrap.css" rel="stylesheet"/>
+        <link type="text/css" href="/static/css/fontbase.css" rel="stylesheet"/>
+        <link type="text/css" href="/static/css/add_device.css" rel="stylesheet"/>
+    </head>
+    <!-- JQuery, Ajax, 부트스트랩 컴포넌트 연동 -->
+    <script src="/static/js/jquery-2.2.4.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="/static/js/bootstrap.js"></script>	
+	<script src="/static/js/add_device.js"></script>
+	
+    <body>
+    	<!-- 상단 네비게이션 바 -->
+    	<div id="navbar_top">
+    		<button id="navbar_top_backbtn" class="glyphicon glyphicon-menu-left" onclick="toMain()"></button>
+    		<div id="navbar_top_btngroup" class="dropdown">
+	    		<button id="navbar_top_menu" onclick="toDropdown()" class="btn_ang glyphicon glyphicon-th" ></button>
+	    		<div id="navbar_top_menu_dropdown">
+	    			<button id="btn_toMain" class="btn_ang" onclick="toMain()">홈으로</button>
+	    			<div class="divline_90"></div>
+	    			<button id="btn_addDevice" class="btn_ang" onclick="addDevice()">장치 추가하기</button>
+	    			<div class="divline_90"></div>
+	    			<button id="btn_setting" class="btn_ang" onclick="toSettings()">설정 및 관리</button>
+	    			<div class="divline_90"></div>
+	    			<button id="btn_logout" class="btn_ang" onclick="logout()">로그 아웃</button>
+	    		</div>
+    		</div>
+    		<h4 id="navbar_top_username">가상의 사용자</h4>    		
+    	</div>
+    	<!-- 상단 네비게이션 바 -->
+    	
+    	<!-- 기기 추가 : 몸통 -->
+    	<div id="container_body">
+    		<h3>장치 추가하기</h3>
+    		<div id="div_addDevice" class="form-group">
+				<label for="register_sn">장치 고유번호</label>
+				<input type="text" class="form-control" id="register_userid" placeholder="장치의 고유번호(S/N)를 입력하세요.">
+			</div>
+			<button id="btn_confirm" class="btn_save" onclick="getDeviceInfo()">확인</button>
+			<div class="divline_90"></div>
+			<h4>장치 상세정보</h4>
+			<table id="detail_addingDevice" class="table_ang">
+				<tr>
+					<th>고유 번호</th>
+					<td id="SN">sample123</td>
+				</tr>
+				<tr>
+					<th>제품명</th>
+					<td id="name">예제 제품</td>
+				</tr>
+				<tr>
+					<th>제품 유형</th>
+					<td id="type">예시품</td>
+				</tr>
+				<tr>
+					<th>생산 일시</th>
+					<td id="date">YYYY MM DD HH:mm</td>
+				</tr>
+				<tr>
+					<td colspan="2"><img id="picture" src="a"></td>
+				</tr>
+			</table>
+			<button id="btn_reg" class="btn_save" onclick="regDevice()">추가하기</button>
+    	</div>
+    	<!-- 기기 추가 : 몸통 -->
+	<!-- 본문 종료 -->
+    </body>
+</html>

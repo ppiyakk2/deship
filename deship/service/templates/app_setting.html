@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    	<!-- 메타 정보 및 스타일 시트 연동 -->
+   		<meta charset="utf-8">
+        <title>IoT Client - Settings</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link type="text/css" href="/static/css/bootstrap.css" rel="stylesheet"/>
+        <link type="text/css" href="/static/css/fontbase.css" rel="stylesheet"/>
+        <link type="text/css" href="/static/css/app_setting.css" rel="stylesheet"/>
+    </head>
+    <!-- JQuery, Ajax, 부트스트랩 컴포넌트 연동 -->
+    <script src="/static/js/jquery-2.2.4.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="/static/js/bootstrap.js"></script>	
+	<script src="/static/js/app_setting.js"></script>
+	
+    <body>
+    	<!-- 상단 네비게이션 바 -->
+    	<div id="navbar_top">
+    		<button id="navbar_top_backbtn" class="glyphicon glyphicon-menu-left" onclick="toMain()"></button>
+    		<div id="navbar_top_btngroup" class="dropdown">
+	    		<button id="navbar_top_menu" onclick="toDropdown()" class="btn_ang glyphicon glyphicon-th"></button>
+	    		<div id="navbar_top_menu_dropdown">
+	    			<button id="btn_toMain" class="btn_ang" onclick="toMain()">홈으로</button>
+	    			<div class="divline_90"></div>
+	    			<button id="btn_addDevice" class="btn_ang" onclick="addDevice()">장치 추가하기</button>
+	    			<div class="divline_90"></div>
+	    			<button id="btn_setting" class="btn_ang" onclick="toSettings()">설정 및 관리</button>
+	    			<div class="divline_90"></div>
+	    			<button id="btn_logout" class="btn_ang" onclick="logout()">로그 아웃</button>
+	    		</div>
+    		</div>
+    		<h4 id="navbar_top_username">가상의 사용자</h4>    		
+    	</div>
+    	
+    	<div class="container_body">
+    		<button id="switch1" class="btn_device" onclick="notYet()">
+    			<h4>스위치 1</h4>
+			</button>
+    		<button id="washmachine1" class="btn_device" data-toggle="collapse" 
+    		data-target="#washmachine1_devinfo" aria-expanded="false" aria-controls="switch1_devinfo">
+    			<h4>세탁기 1</h4>
+			</button>
+			<div class="collapse" id="washmachine1_devinfo">
+				<div class="well">
+   	 				<table id="info_switch1" class="table_ang">
+   	 					<tr>
+   	 						<th id="td_name" colspan="2">세탁기 1</th>
+   	 					</tr>
+   	 					<tr>
+							<td>고유 번호</td>
+							<td id="SN">sample123</td>
+						</tr>
+						<tr>
+							<td>생산 일시</td>
+							<td id="date">YYYY MM DD HH:mm</td>
+						</tr>
+						<tr>
+							<td>보증 기간</td>
+							<td id="guarantee">구입일로부터 2년</td>
+						</tr>
+   	 					<tr>
+    						<td>남은 세제량 : </td>
+    						<td id="td_remain_det">22%</td>
+    					</tr>
+   	 					<tr>
+    						<td>상태 : </td>
+    						<td id="td_status">작동 가능</td>
+    					</tr>
+    					<tr>
+    						<td colspan="2">
+    							<button id="btn_rule" class="btn_save" onclick="toRule()">
+    								사용자 설정
+    							</button>
+    						</td>
+    					</tr>
+    				</table>
+    			</div>
+    		</div>
+
+			<button id="doorlock" class="btn_device" onclick="notYet()">
+    			<h4>도어락 1</h4>
+			</button>
+    	</div>
+
+    	<!-- 하단 버튼 -->
+    	<!--<div id="navbar_bottom">
+    		<button id="add_rule" class="btn_ang" onclick="addRule()">
+    			<span class="glyphicon glyphicon-plus"></span>사용자 규칙 추가하기
+    		</button>
+    	</div>-->
+	<!-- 본문 종료 -->
+    </body>
+</html>

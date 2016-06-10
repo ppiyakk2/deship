@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    	<!-- 메타 정보 및 스타일 시트 연동 -->
+   		<meta charset="utf-8">
+        <title>IoT Client - Custom Rule</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link type="text/css" href="/static/css/bootstrap.css" rel="stylesheet"/>
+        <link type="text/css" href="/static/css/fontbase.css" rel="stylesheet"/>
+        <link type="text/css" href="/static/css/rule.css" rel="stylesheet"/>
+    </head>
+    <!-- JQuery, Ajax, 부트스트랩 컴포넌트 연동 -->
+    <script src="/static/js/jquery-2.2.4.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="/static/js/bootstrap.js"></script>	
+	<script src="/static/js/rule.js"></script>
+	
+    <body>
+    	<!-- 상단 네비게이션 바 -->
+    	<div id="navbar_top">
+    		<button id="navbar_top_backbtn" class="glyphicon glyphicon-menu-left" onclick="toMain()"></button>
+    		<div id="navbar_top_btngroup" class="dropdown">
+	    		<button id="navbar_top_menu" onclick="toDropdown()" class="btn_ang glyphicon glyphicon-th"></button>
+	    		<div id="navbar_top_menu_dropdown">
+	    			<button id="btn_toMain" class="btn_ang" onclick="toMain()">홈으로</button>
+	    			<div class="divline_90"></div>
+	    			<button id="btn_addDevice" class="btn_ang" onclick="addDevice()">장치 추가하기</button>
+	    			<div class="divline_90"></div>
+	    			<button id="btn_setting" class="btn_ang" onclick="toSettings()">설정 및 관리</button>
+	    			<div class="divline_90"></div>
+	    			<button id="btn_logout" class="btn_ang" onclick="logout()">로그 아웃</button>
+	    		</div>
+    		</div>
+    		<h4 id="navbar_top_username">가상의 사용자</h4>    		
+    	</div>
+    	
+    	<div class="container_body">
+			<h3>사용자 장치 제어 설정</h3>
+			<div class="divline_90"></div>
+			<div id="custom_rule" class="container_rule">
+    			<h3>세탁기 1</h3>
+    			
+    			<div id="div_autoCharge">
+    				<span class="inlineSpan">세제 자동구매 설정 </span>
+    				<div class="form-group">	
+    					<span>세제가 다음 이하일 때 자동구매</span>
+    					<select class="form-control" id="autoChargeVal">
+							<option value="0.1">10%</option>
+							<option value="0.2">20%</option>
+							<option value="0.3">30%</option>
+							<option value="0.4">40%</option>
+							<option value="0.5">50%</option>
+							<option value="0.6">60%</option>
+							<option value="0.7">70%</option>
+							<option value="-1">사용안함</option>
+						</select>
+    				</div>
+    			</div>
+    			
+    			<div class="divline_60"></div>
+    			
+    			<div id="div_autoAlert">
+    				<span class="inlineSpan">세제부족 알림 설정 </span>
+    				<div class="form-group">	
+    					<span>세제가 다음 이하일 때 알림 전송</span>
+    					<select class="form-control" id="autoAlertVal">
+							<option value="0.1">10%</option>
+							<option value="0.2">20%</option>
+							<option value="0.3">30%</option>
+							<option value="0.4">40%</option>
+							<option value="0.5">50%</option>
+							<option value="0.6">60%</option>
+							<option value="0.7">70%</option>
+							<option value="-1">사용안함</option>
+						</select>
+    				</div>
+    			</div>
+    			
+    			<button id="btn_saveRule" class="btn_save" onclick="saveRule()">저장</button>
+    		</div>
+    	</div>
+
+    	<!-- 하단 버튼 -->
+    	<!--<div id="navbar_bottom">
+    		<button id="add_rule" class="btn_ang" onclick="addRule()">
+    			<span class="glyphicon glyphicon-plus"></span>사용자 규칙 추가하기
+    		</button>
+    	</div>-->
+	<!-- 본문 종료 -->
+    </body>
+</html>

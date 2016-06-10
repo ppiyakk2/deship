@@ -1,0 +1,153 @@
+@charset "utf-8";
+*
+{
+	/*border:1px dashed blue !important;*/
+}
+body
+{
+	font-family: 'Nanum Barun Gothic', 'Nanum Gothic', '돋움', sans-serif;
+	background-color:white;
+}
+#container_input{
+	margin:auto auto;
+	margin-top:44%;
+	width:77%;
+}
+#container_btn{
+	margin:auto auto;
+	text-align:center;
+}
+#btn_login
+{
+	background-color:RGBA(255,85,85,0.8);
+	color:white;
+	width:44%;
+	font-size:16pt;
+	margin:7px auto;
+	border-radius:5px;
+	padding:4px 4px !important;
+	display:block;
+}
+#btn_register
+{
+	background-color:RGBA(50,80,255,0.8);
+	color:white;
+	width:44%;
+	font-size:16pt;
+	margin:7px auto;
+	border-radius:5px;
+	padding:4px 4px !important;
+	display:block;
+}
+#addressLabel{
+	display:block;
+}
+#register_address_L{
+	width:30%;
+	display:inline-block;
+}
+#register_address{
+	width:69%;
+	display:inline-block;
+}
+/***** 별도의 컴포넌트 스타일 시트 *****/
+.btn_save
+{
+	border-radius:4px;
+	padding:6px;
+	padding-left:11px;
+	padding-right:11px;
+	color:white;
+	border:1px solid #D0D0D0;
+	background-color: RGBA(33,33,222,0.7);
+}
+.btn_transp
+{
+	border-radius:4px;
+	padding:5px;
+	padding-left:7px;
+	padding-right:7px;
+	color:white;
+	border:0px;
+}
+.btn_ang
+{
+	background-color:RGBA(0,210,255,0.9);
+	color:white;
+	border:0px;
+	border-radius:2px;
+}
+.btn_ang:hover
+{
+	background-color:RGBA(0,190,245,0.9);
+	font-style:normal;
+	color:white;
+	text-decoration:none;
+}
+.btn_ang:active
+{
+	color:white;
+	text-decoration:none !important;
+}
+.btn_ang:visited
+{
+	text-decoration:none !important;
+	color:white;
+}
+.btn_ang:focus
+{
+	text-decoration:none;
+}
+.citybtn
+{
+	font-size:25pt;
+	padding:9pt 14pt;
+	font-weight:normal;
+	border-radius:6pt;
+	margin:15px; 10px;
+}
+.citybtn:active
+{
+	text-decoration: none !important;
+	color:white;
+}
+.citybtn:visited
+{
+	text-decoration:none !important;
+	color:white;
+}
+.table_ang
+{
+	margin:auto auto;
+	width:102%;
+}
+.table_ang>tbody
+{
+	margin:auto auto;
+}
+.table_ang>tbody>tr>th
+{
+	text-align:center;
+	font-size:11pt;
+	padding-left:8px;
+	padding-right:8px;
+	padding-top:4px;
+	padding-bottom:4px;
+}
+.table_ang>tbody>tr>td
+{
+	text-align:center;
+	font-size:10pt;
+	padding-left:8px;
+	padding-right:8px;
+	padding-top:4px;
+	padding-bottom:4px;
+}
+.divline_60
+{
+	height:1px;
+	width:60%;
+	border-top:1px solid #D0D0D0;
+	margin:15px auto;
+}
+/**********************************/

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    	<!-- 메타 정보 및 스타일 시트 연동 -->
+   		<meta charset="utf-8">
+        <title>IoT Client</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link type="text/css" href="/static/css/bootstrap.css" rel="stylesheet"/>
+        <link type="text/css" href="/static/css/fontbase.css" rel="stylesheet"/>
+        <link type="text/css" href="/static/css/index.css" rel="stylesheet"/>
+    </head>
+    <!-- JQuery, Ajax, 부트스트랩 컴포넌트 연동 -->
+    <script src="/static/js/jquery-2.2.4.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="/static/js/bootstrap.js"></script>	
+	<script src="/static/js/index.js"></script>
+	
+    <body>
+    	
+    	<div id="container_input">
+    		<div class="form-group">
+				<label for="login_id">사용자 계정</label>
+				<input type="text" class="form-control" id="login_id" placeholder="사용자 계정(ID)을 입력하세요.">
+			</div>
+			<div class="form-group">
+				<label for="login_password">암호</label>
+				<input type="password" class="form-control" id="login_password" placeholder="암호를 입력해주세요.">
+			</div>
+    	</div>
+    	
+    	<div id="container_btn">
+    		<button id="btn_login" class="btn_ang" onclick="signin()">로그인</button>
+    		<button id="btn_register" class="btn_ang" 
+    		data-toggle="modal" data-target="#modal_register">등록하기</button>
+    	</div>
+    	
+    	<!-- 모달 : 사용자 등록 -->
+		<div class="modal fade" id="modal_register" tabindex="-1" role="dialog" 
+		aria-labelledby="modal_register" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel">회원 등록</h4>
+				  	</div>
+				  	<div class="modal-body">
+				  
+							<div class="form-group">
+								<label for="register_id">사용자 계정</label>
+								<input type="text" class="form-control" id="register_userid" placeholder="사용자 계정(ID)을 입력하세요.">
+							</div>
+							<div class="form-group">
+								<label for="register_username">사용자명</label>
+								<input type="text" class="form-control" id="register_username" placeholder="사용자명(이름)을 입력하세요..">
+							</div>
+							<div class="form-group">
+								<label for="register_password">암호</label>
+								<input type="password" class="form-control" id="register_password" placeholder="암호를 입력해주세요.">
+							</div>
+							<div class="form-group">
+								<label for="register_phone">연락처</label>
+								<input type="text" class="form-control" id="register_phone" placeholder="연락처를 입력해주세요.">
+							</div>
+							<div class="form-group">
+								<label id="addressLabel" for="register_address">주소</label>
+								<select class="form-control" id="register_address_L">
+									<option value="경기도">경기도</option>
+									<option value="강원도">강원도</option>
+								</select>
+								<input type="text" class="form-control" id="register_address" placeholder="나머지 주소를 입력해주세요.">
+							</div>
+				
+				  	</div>
+				  	<div class="modal-footer">
+				  		<button type="button" onclick="register()" id="modal_btn_register" class="btn_save">등록</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 모달 : 사용자 등록 종료 -->
+	<!-- 본문 종료 -->
+    </body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    	<!-- 메타 정보 및 스타일 시트 연동 -->
+   		<meta charset="utf-8">
+        <title>IoT Client - Main</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link type="text/css" href="/static/css/bootstrap.css" rel="stylesheet"/>
+        <link type="text/css" href="/static/css/fontbase.css" rel="stylesheet"/>
+        <link type="text/css" href="/static/css/app_main.css" rel="stylesheet"/>
+    </head>
+    <!-- JQuery, Ajax, 부트스트랩 컴포넌트 연동 -->
+    <script src="/static/js/jquery-2.2.4.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="/static/js/bootstrap.js"></script>	
+	<script src="/static/js/app_main.js"></script>
+	
+    <body>
+    	<!-- 상단 네비게이션 바 -->
+    	<div id="navbar_top">
+    		
+    		<div id="navbar_top_btngroup" class="dropdown">
+	    		<button id="navbar_top_menu" onclick="toDropdown()" class="btn_ang glyphicon glyphicon-th" ></button>
+	    		<div id="navbar_top_menu_dropdown">
+	    			<button id="btn_toMain" class="btn_ang" onclick="toMain()">홈으로</button>
+	    			<div class="divline_90"></div>
+	    			<button id="btn_addDevice" class="btn_ang" onclick="addDevice()">장치 추가하기</button>
+	    			<div class="divline_90"></div>
+	    			<button id="btn_setting" class="btn_ang" onclick="toSettings()">설정 및 관리</button>
+	    			<div class="divline_90"></div>
+	    			<button id="btn_logout" class="btn_ang" onclick="logout()">로그 아웃</button>
+	    		</div>
+    		</div>
+    		<h4 id="navbar_top_username">가상의 사용자</h4>    		
+    	</div>
+    	
+    	
+    	<div id="container_components">
+    		<h3>스마트 홈 장치 상태</h3>
+    		<div class="component_device">
+    			<button id="switch1" class="component_device_btn" onclick="toRule(id)">
+    				<h5>스위치 1</h5>
+    				<img id="icon_switch" class="dev_icon" src="/static/img/switch.png"/>
+    				<table>
+    					<tr>
+    						<td>상태 : </td>
+    						<td>켜짐</td>
+    					</tr>
+    				</table>
+    			</button>
+    		</div>
+    		<div class="component_device">
+    			<button id="washing_machine" class="component_device_btn" onclick="toRule(id)">
+    				<h5>세탁기 1</h5>
+    				<img id="icon_washing_machine" class="dev_icon" src="/static/img/washing_machine.png"/>
+    				<table>
+    					<tr>
+    						<td>상태 : </td>
+    						<td>작동가능</td>
+    					</tr>
+    					<tr>
+    						<td>잔여 세제량 :</td>
+    						<td>23%</td>
+    					</tr>
+    				</table>
+    			</button>
+    		</div>
+    		<div class="component_device">
+    			<button id="door_lock" class="component_device_btn" onclick="toRule(id)">
+    				<h5>도어락 1</h5>
+    				<img id="icon_doorlock" class="dev_icon" src="/static/img/doorlock.png"/>
+    				<table>
+    					<tr>
+    						<td>상태 : </td>
+    						<td>잠김</td>
+    					</tr>
+    					<tr>
+    						<td>배터리 잔여량 :</td>
+    						<td>89%</td>
+    					</tr>
+    				</table>
+    			</button>
+    		</div>
+    	</div>
+    	
+    	<!-- 하단 버튼 모음 바 -->
+    	<!--<div id="navbar_bottom">
+    		<button id="add_device"	data-toggle="modal" data-target="#modal_addDevice">
+    			장치 추가하기
+    		</button>
+    		<div class="div_vertical_80"></div>
+    		<button id="settings" onclick="toSettings()">
+    			장치 관리하기
+    		</button>
+    	</div>-->
+    	
+    	<!-- 모달 : 장치 등록 -->
+		<!--<div class="modal fade" id="modal_addDevice" tabindex="-1" role="dialog" 
+		aria-labelledby="modal_addDevice" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel">장치 추가하기</h4>
+				  	</div>
+				  	<div class="modal-body">
+							<div class="form-group">
+								<label for="register_sn">장치 고유번호</label>
+								<input type="text" class="form-control" id="register_userid" placeholder="추가하려는 장치의 고유번호(S/N)을 입력하세요.">
+							</div>
+				
+				  	</div>
+				  	<div class="modal-footer">
+				  		<button type="button" onclick="addDevice()" id="modal_btn_register" class="btn_save">추가</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+					</div>
+				</div>
+			</div>
+		</div>-->
+		<!-- 모달 : 장치 등록 종료 -->
+	<!-- 본문 종료 -->
+    </body>
+</html>
