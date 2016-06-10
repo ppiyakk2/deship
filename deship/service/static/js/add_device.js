@@ -54,12 +54,20 @@ function getDeviceInfo()
 		url:URLis,
 		dataType:"json",
 		succcess:function(data){	
-			alert("ㅇ");
 		},
 		statusCode:{
 			200:function(data){
 				device = data["device"];
-				alert(device.device_name);
+				$("#SN").html(device.SN);
+				$("#name").html(device.device_name);
+				$("#type").html(device.device_type);
+				$("#date").html(device.productive_date);
+				if(device.device_type == "세탁기"){
+					$("#device_picture").attr("src","/static/img/washing_machine2.png");
+				}
+				else{
+					alert("등록된 이미지가 없습니다.");
+				}
 			},
 			400:function(){
 				alert("이미 등록된 장치입니다.");

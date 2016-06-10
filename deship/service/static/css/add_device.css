@@ -166,7 +166,10 @@ body
 	background-color:RGBA(150,100,255,0.8);
 	width:77%;
 }
-
+#device_picture{
+	width:200px;
+	height:200px;
+}
 
 /***** 별도의 컴포넌트 스타일 시트 *****/
 .div_vertical_80{
