@@ -24,25 +24,25 @@ function toDropdown()
 // 장치 관리 페이지로 전환
 function toSettings()
 {
-	window.location.href = "http://211.198.65.241:38080/setting";
+	window.location.href = "/setting";
 }
 
 // 사용자 로그아웃
 function logout()
 {
-	window.location.replace("http://211.198.65.241:38080/");
+	window.location.replace("/");
 }
 
 // 장치 추가
 function addDevice()
 {
-	window.location.replace("http://211.198.65.241:38080/add_device");
+	window.location.replace("/add_device");
 }
 
 // 메인 화면으로 전환
 function toMain()
 {
-	window.location.replace("http://211.198.65.241:38080/main");
+	window.location.replace("/main");
 }
 
 // 상세보기

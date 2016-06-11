@@ -30,28 +30,36 @@ function toDropdown()
 // 장치 관리 페이지로 전환
 function toSettings()
 {
-	window.location.href = "http://211.198.65.241:38080/setting";
+	window.location.href = "/setting";
 }
 
 // 사용자 로그아웃
 function logout()
 {
-	window.location.replace("http://211.198.65.241:38080/");
+	window.location.replace("/");
 }
 
 // 장치 추가
 function addDevice()
 {
-	window.location.replace("http://211.198.65.241:38080/add_device");
+	window.location.replace("/add_device");
 }
 
 // 메인 화면으로 전환
 function toMain()
 {
-	window.location.replace("http://211.198.65.241:38080/main");
+	window.location.replace("/main");
 }
 
 // 소모품 목록 획득
+/*
+ * 
+ * 
+ * 			소모품 목록을 서버에서 받아와 설정 화면에 표시
+ * 
+ * 
+ * 
+ *
 $(function(){
 	var item;
 	var URLis = "/item/";
@@ -77,6 +85,11 @@ $(function(){
 		}
 	});
 });
+* 
+* 
+* 
+* 
+* */
 
 // 사용자 설정값 로드
 $(function(){
@@ -86,9 +99,10 @@ $(function(){
 		url:URLis,
 		dataType:"json",
 		success:function(data){
-			$("#autoChargeVal").val(data.criteria).attr("selected","selected");
-			$("#autoAlertVal").val(data.alarm_criteria).attr("selected","selected");
-			itemSelect(data.item_id);
+			var rule = data["rule"];
+			$("#autoChargeVal").val(rule.criteria).attr("selected","selected");
+			$("#autoAlertVal").val(rule.alarm_critera).attr("selected","selected");
+			itemSelect(rule.item_id);
 		}
 	});
 });
@@ -120,10 +134,10 @@ function saveRule()
 		},
 		statusCode:{
 			200:function(){
-				window.location.replace("http://211.198.65.241:38080/setting/"+thisSN);
+				//window.location.replace("/setting/"+thisSN);
 			}
 		}
 	});
-	//window.location.href="http://211.198.65.241:38080/setting";
+	//window.location.href="/setting";
 }
 
