@@ -36,5 +36,7 @@ def add_device():
 @app.route('/rule/<device_id>/page')
 def rule(device_id):
     dev = device.get_device(device_id)
+    user_id = request.cookies.get('user_id')
+    name = users.get_user(user_id)
     return render_template('rule.html', device_id=device_id,
-                           device_name=dev['device_name'])
+                           device_name=dev['device_name'], user_name=name)

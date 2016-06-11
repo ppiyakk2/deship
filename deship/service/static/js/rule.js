@@ -2,10 +2,7 @@
 $(function()
 {
 	var id = $.cookie('user_id');
-	var name = $.cookie('user_name');
 	decodeURIComponent(id);
-	decodeURIComponent(name);
-	$('#navbar_top_username').html(name);
 });
 
 // 장치 ID 획득
@@ -64,8 +61,9 @@ $(function(){
 			item = data["itemlist"];
 			var content="";
 			$.each(item ,function(index, entry){
+				var imgurl = "/item/"+entry.item_id+"/img"
 				content += "<button id=\"btn_"+entry.item_id+"\" class=\"btn_item\" value=\""+entry.item_id+"\" onclick=\"itemSelect(id)\">"
-    						+"<img id=\"img_"+entry.item_id+"\" class=\"img_item\" src=\"/static/imgs/item2.png\"/>"
+    						+"<img id=\"img_"+entry.item_id+"\" class=\"img_item\" src=\""+imgurl+"\"/>"
     						+"<div class=\"divp_item\">"
     							+"<p class=\"item_name\">"+entry.name+"</p>"
     							+"<p class=\"item_price\">"+ entry.price +" 원</p>"

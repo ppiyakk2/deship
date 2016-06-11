@@ -10,5 +10,11 @@ def get_item_list(device_id):
         return False
 
     cdb, ccon = city_db()
-    items = cdb.table('cooperation_item').filter(device_type).run(ccon)
+    items = cdb.table('cooperation_item').filter({'device_category': device_type['device_type']}).without('image').run(ccon)
     return list(items) if items is not None else list()
+
+
+def get_item_image(item_id):
+    cdb, ccon = city_db()
+    img = cdb.table('cooperation_item').get(item_id).pluck('image').run(ccon)
+    return img['image']

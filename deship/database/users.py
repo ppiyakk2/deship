@@ -28,7 +28,7 @@ def diff_password(data):
     re = db.table('users').get(data['ID']).pluck('passwd').run(con)
 
     if re is None:
-        return False, None
+        return False
 
     if data['passwd'] == re['passwd']:
         return True
