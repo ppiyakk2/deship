@@ -19,9 +19,12 @@ def add_user(data):
 
 def diff_password(data):
     db, con = service_db()
-    re = db.table('users').get(data['ID']).pluck('passwd').run(con)
+    re = db.table('users').get(data['ID']).pluck('passwd', 'user_name').run(con)
+
+    if re is None:
+        return False, None
 
     if data['passwd'] == re['passwd']:
-        return True
+        return True, re['user_name']
     else:
-        return False
+        return False, None

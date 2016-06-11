@@ -16,9 +16,12 @@ def user_register():
 @app.route('/users/signin', methods=['POST'])
 def user_login():
     data = request.values
-    if users.diff_password(data):
+
+    result, name = users.diff_password(data)
+    if result:
         response = app.make_response('ok')
         response.set_cookie('user_id', data['ID'])
+        response.set_cookie('user_name', name)
         return response
     else:
         return 'password not matched', 400
