@@ -62,25 +62,52 @@ function getDeviceInfo()
 				$("#name").html(device.device_name);
 				$("#type").html(device.device_type);
 				$("#date").html(device.productive_date);
-				if(device.device_type == "세탁기"){
+				if(device.device_name == "성수성수"){
 					$("#device_picture").attr("src","/static/img/washing_machine2.png");
 				}
 				else{
+					
 					alert("등록된 이미지가 없습니다.");
 				}
 			},
 			400:function(){
+				$("#SN").html("--");
+				$("#name").html("--");
+				$("#type").html("--");
+				$("#date").html("---- -- --");
+				$("#device_picture").attr("src","/static/img/no_img.png");
 				alert("이미 등록된 장치입니다.");
 				},
 			404:function(){
-				alert("존재하지 않는 장치입니다.");		
+				$("#SN").html("--");
+				$("#name").html("--");
+				$("#type").html("--");
+				$("#date").html("---- -- --");	
+				$("#device_picture").attr("src","/static/img/no_img.png");
+				alert("존재하지 않는 장치입니다.");	
 				}
 		}
 	});
 }
 
 // 장치 추가, 장치 정보를 서버로 전송
-function regDevice()
+function addDevice_R()
 {
-	
+	var SN = $("#register_userid").val();
+	var URLis="/device/";
+	URLis += SN;
+	$.ajax({
+		type:"POST",
+		url:URLis,
+		dataType:"json",
+		data:{
+			"SN":device.SN
+		},
+		statusCode:{
+			200:function(){
+				alert("장치가 추가되었습니다.");
+				window.location.replace("http://211.198.65.241:38080/main");
+			}
+		}
+	});
 }

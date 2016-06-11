@@ -66,6 +66,7 @@ body
 	padding-top:6px;
 	float:right;
 	position:fixed;
+	top:0;
 	z-index:102;
 	right:50px;
 	text-align:right;
@@ -138,7 +139,7 @@ body
 	margin-top:51px;
 	margin-left:auto;
 	margin-right:auto;
-	width:88%;
+	width:95%;
 	height:auto;
 	overflow:auto;
 	text-align:center;
@@ -218,8 +219,29 @@ body
 	float:right;
 	margin-top:30px;
 }
-
+#selectedItem{
+}
 /***** 별도의 컴포넌트 스타일 시트 *****/
+.padding_left{
+	padding-left:8px;
+}
+.divp_item{
+	display:inline-block;
+}
+.img_item{
+	display:inline-block;
+	width:80px;
+	height:80px;
+	margin:auto 20px;
+}
+.btn_item{
+	width:100%;
+	margin:auto auto;
+	margin-top:10px;
+	border:1px solid #DFDFDF;
+	padding:10px 10px;
+	background-color:RGBA(244,244,244,0.2);
+}
 .div_vertical_80{
 	width:1px;
 	border:none;
