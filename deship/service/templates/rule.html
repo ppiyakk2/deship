@@ -11,6 +11,7 @@
     </head>
     <!-- JQuery, Ajax, 부트스트랩 컴포넌트 연동 -->
     <script src="/static/js/jquery-2.2.4.js"></script>
+     <script src="/static/js/jquery.cookie.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="/static/js/bootstrap.js"></script>	
 	<script src="/static/js/rule.js"></script>
@@ -73,6 +74,32 @@
 							<option value="0.7">70%</option>
 							<option value="-1">사용안함</option>
 						</select>
+    				</div>
+    			</div>
+    			
+    			<div class="divline_60"></div>
+    			
+    			<div id="div_itemList">
+    				<span class="inlineSpan">소모품 구매 설정 </span>
+    				<p class="padding_left">자동구매 제품 :
+    					<span id="selected_item">&nbsp;</span></p>
+    				<div class="div_btnGroup">
+    					<button id="btn_item1" class="btn_item" value="item1" onclick="itemSelect(id)">
+    						<img id="img_item1" class="img_item" src="/static/img/item1.png"/>
+    						<div class="divp_item">
+    							<p class="item_name">Persil 컬러젤 드럼 2.7L</p>
+    							<p class="item_price">19,000 원</p>
+    						</div>
+    					</button>
+    					
+    					<button id="btn_item2" class="btn_item" value="item2" onclick="itemSelect(id)">
+    						<img id="img_item2" class="img_item" src="/static/img/item2.png"/>
+    						<div class="divp_item">
+    							<p class="item_name">아토세이프 액상 2.5L</p>
+    							<p class="item_price">21,000 원</p>
+    						</div>
+    					</button>
+    					
     				</div>
     			</div>
     			

@@ -9,8 +9,12 @@ body
 	background-color:white;
 	margin:auto auto;
 }
+p{
+	margin-bottom:6px;
+}
 #navbar_top{
 	position:fixed;
+	top:0;
 	z-index:9;
 	width:100%;
 	height:50px;
@@ -124,10 +128,12 @@ body
 	padding:6px 6px !important;
 }
 #container_components{
-	padding-top:53px;
 	margin:auto auto;
+	margin-top:51px;
+	padding-top:5px;
+	padding-bottom:15px;
 	text-align:center;
-	padding-bottom:53px;
+	display:block;
 }
 #navbar_bottom{
 	width:100%;
@@ -180,19 +186,16 @@ body
 	margin-top:5px;
 }
 /***** 별도의 컴포넌트 스타일 시트 *****/
-.component_device{
-	width:48%;
-	height:200px;
-	background-color:RGBA(222,222,222,0.2);	
-	display:inline-block;
-	margin:4px 2px;
-	text-align:center;
-	border-radius:5px;
-}
 .component_device_btn{
-	width:100%;
-	height:100%;
-	border:none;
+	width:47%;
+	height:200px;
+	border-radius:15px;
+	border:1px solid RGBA(233,233,233,0.2);
+	margin:4px 1%;
+	margin-top:20px;
+	display:inline;
+	text-align:center;
+	padding:0 0;
 	background-color:RGBA(250,250,250,0.1);
 }
 .btn_save
@@ -289,6 +292,7 @@ body
 	margin:0px auto;
 }
 .dev_icon{
+	margin-bottom:8px;
 	width:80px;
 	height:80px;
 }

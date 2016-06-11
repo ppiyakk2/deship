@@ -42,10 +42,37 @@ function toMain()
 	window.location.replace("http://211.198.65.241:38080/main");
 }
 
-
+// 사용자 설정 옵션 값 획득
+var autoCharge;
+var autoAlert;
+var item_name;
+var item_Selected;
+function itemSelect(id){
+	item_name = $("#"+id+">div>p.item_name").html();
+	item_Selected = $("#"+id).attr("value");
+	$("#selected_item").html("&nbsp; "+item_name);
+}
 // 사용자 설정 저장, 서버 전송
 function saveRule()
 {
-	window.location.href="http://211.198.65.241:38080/setting";
+	autoCharge = $("#autoChargeVal").val();
+	autoAlert = $("#autoAlertVal").val();
+	var URLis;
+	$.ajax({
+		type:"POST",
+		url:URLis,
+		dataType:"json",
+		data:{
+			"auto_charge" : autoCharge,
+			"auto_alert" : autoAlert,
+			"item" : item_Selected
+		},
+		statusCode:{
+			200:function(){
+				window.location.replace("http://211.198.65.241:38080/setting");
+			}
+		}
+	});
+	//window.location.href="http://211.198.65.241:38080/setting";
 }
 

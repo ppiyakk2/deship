@@ -11,6 +11,7 @@
     </head>
     <!-- JQuery, Ajax, 부트스트랩 컴포넌트 연동 -->
     <script src="/static/js/jquery-2.2.4.js"></script>
+     <script src="/static/js/jquery.cookie.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="/static/js/bootstrap.js"></script>	
 	<script src="/static/js/add_device.js"></script>
@@ -48,25 +49,25 @@
 			<table id="detail_addingDevice" class="table_ang">
 				<tr>
 					<th>고유 번호</th>
-					<td id="SN">sample123</td>
+					<td id="SN">--</td>
 				</tr>
 				<tr>
 					<th>제품명</th>
-					<td id="name">예제 제품</td>
+					<td id="name">--</td>
 				</tr>
 				<tr>
 					<th>제품 유형</th>
-					<td id="type">예시품</td>
+					<td id="type">--</td>
 				</tr>
 				<tr>
 					<th>생산 일시</th>
-					<td id="date">YYYY MM DD HH:mm</td>
+					<td id="date">---- -- --</td>
 				</tr>
 				<tr>
-					<td colspan="2"><img id="picture" src="a"></td>
+					<td colspan="2"><img id="device_picture" src="a"></td>
 				</tr>
 			</table>
-			<button id="btn_reg" class="btn_save" onclick="regDevice()">추가하기</button>
+			<button id="btn_reg" class="btn_save" onclick="addDevice_R()">추가하기</button>
     	</div>
     	<!-- 기기 추가 : 몸통 -->
 	<!-- 본문 종료 -->
