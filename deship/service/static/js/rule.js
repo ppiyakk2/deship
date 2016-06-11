@@ -8,6 +8,12 @@ $(function()
 	$('#navbar_top_username').html(name);
 });
 
+// 장치 ID 획득
+var thisSN;
+$(document).ready(function(){
+	thisSN = $("#device_id").html();
+});
+
 // 상단 네비게이션 바 드롭다운 제어
 function toDropdown()
 {
@@ -49,7 +55,7 @@ function toMain()
 $(function(){
 	var item;
 	var URLis = "/item/";
-	URLis += SN;
+	URLis += thisSN;
 	$.ajax({
 		type:"GET",
 		dataType:"json",
@@ -72,6 +78,21 @@ $(function(){
 	});
 });
 
+// 사용자 설정값 로드
+$(function(){
+	var URLis = "/rule/"+thisSN;
+	$.ajax({
+		type:"GET",
+		url:URLis,
+		dataType:"json",
+		success:function(data){
+			$("#autoChargeVal").val(data.criteria).attr("selected","selected");
+			$("#autoAlertVal").val(data.alarm_criteria).attr("selected","selected");
+			itemSelect(data.item_id);
+		}
+	});
+});
+
 // 사용자 설정 옵션 값 획득
 var autoCharge;
 var autoAlert;
@@ -87,19 +108,19 @@ function saveRule()
 {
 	autoCharge = $("#autoChargeVal").val();
 	autoAlert = $("#autoAlertVal").val();
-	var URLis;
+	var URLis = "/rule/"+thisSN;
 	$.ajax({
 		type:"POST",
 		url:URLis,
 		dataType:"json",
 		data:{
-			"auto_charge" : autoCharge,
-			"auto_alert" : autoAlert,
-			"item" : item_Selected
+			"criteria" : autoCharge,
+			"alarm_critera" : autoAlert,
+			"item_id" : item_Selected
 		},
 		statusCode:{
 			200:function(){
-				window.location.replace("http://211.198.65.241:38080/setting");
+				window.location.replace("http://211.198.65.241:38080/setting/"+thisSN);
 			}
 		}
 	});

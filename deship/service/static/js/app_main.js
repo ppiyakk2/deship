@@ -45,12 +45,12 @@ function toMain()
 	window.location.replace("http://211.198.65.241:38080/main");
 }
 
-// 미구현 알람
-function toRule(thisID)
+// 상세보기
+function toDetail(thisID)
 {
 	if(thisID == "12345")
 	{
-		window.location.href= "http://211.198.65.241:38080/rule";
+		window.location.href= "http://211.198.65.241:38080/setting/"+thisID;
 	}
 	else
 	{
@@ -91,22 +91,22 @@ $(function(){
 			device_list = data["devices"];
 			var content="";
 			$.each(device_list, function(index, entry){
-				content += "<button id=\""+entry.SN+"\" class=\"component_device_btn\" onclick=\"toRule(id)\">"+
+				content += "<button id=\""+entry.SN+"\" class=\"component_device_btn\" onclick=\"toDetail(id)\">"+
     				"<h5>"+entry.device_name+"</h5>";
     				content += typeAcog(entry.device_type);
 			});
-			content+="<button id=\"switch1\" class=\"component_device_btn\" onclick=\"toRule(id)\">"+
+			content+="<button id=\"switch1\" class=\"component_device_btn\" onclick=\"toDetail(id)\">"+
 	    				"<h5>스위치 1</h5>"+
 	    				"<img id=\"icon_switch\" class=\"dev_icon\" src=\"/static/imgs/switch.png\"/>"+
 	    				"<p>상태 : <span>켜짐</span></p>"+
 	    			"</button>"+
-	    			"<button id=\"door_lock\" class=\"component_device_btn\" onclick=\"toRule(id)\">"+
+	    			"<button id=\"door_lock\" class=\"component_device_btn\" onclick=\"toDetail(id)\">"+
 	    				"<h5>도어락 1</h5>"+
 	    				"<img id=\"icon_doorlock\" class=\"dev_icon\" src=\"/static/imgs/doorlock.png\"/>"+
 	    				"<p>상태 : <span>잠김</span></p>"+
 	    				"<p>배터리 잔여량 : <span></span>%</p>"+
 	    			"</button>"+
-	    			"<button id=\"switch2\" class=\"component_device_btn\" onclick=\"toRule(id)\">"+
+	    			"<button id=\"switch2\" class=\"component_device_btn\" onclick=\"toDetail(id)\">"+
 	    				"<h5>스위치 2</h5>"+
 	    				"<img id=\"icon_switch\" class=\"dev_icon\" src=\"/static/imgs/switch.png\"/>"+
 	    				"<p>상태 : <span>꺼짐</span></p>"+

@@ -18,6 +18,7 @@
     <body>
     	<!-- 상단 네비게이션 바 -->
     	<div id="navbar_top">
+    		<div id="device_id">{{device_id}}</div>
     		<button id="navbar_top_backbtn" class="glyphicon glyphicon-menu-left" onclick="toMain()"></button>
     		<div id="navbar_top_btngroup" class="dropdown">
 	    		<button id="navbar_top_menu" onclick="toDropdown()" class="btn_ang glyphicon glyphicon-th"></button>
@@ -38,20 +39,20 @@
 			<h3>사용자 장치 제어 설정</h3>
 			<div class="divline_90"></div>
 			<div id="custom_rule" class="container_rule">
-    			<h3>세탁기 1</h3>
+    			<h3>{{device_name}}</h3>
     			
     			<div id="div_autoCharge">
     				<span class="inlineSpan">세제 자동구매 설정 </span>
     				<div class="form-group">	
     					<span>세제가 다음 이하일 때 자동구매</span>
     					<select class="form-control" id="autoChargeVal">
-							<option value="0.1">10%</option>
-							<option value="0.2">20%</option>
-							<option value="0.3">30%</option>
-							<option value="0.4">40%</option>
-							<option value="0.5">50%</option>
-							<option value="0.6">60%</option>
-							<option value="0.7">70%</option>
+							<option value="10">10%</option>
+							<option value="20">20%</option>
+							<option value="30">30%</option>
+							<option value="40">40%</option>
+							<option value="50">50%</option>
+							<option value="60">60%</option>
+							<option value="70">70%</option>
 							<option value="-1">사용안함</option>
 						</select>
     				</div>
@@ -64,13 +65,13 @@
     				<div class="form-group">	
     					<span>세제가 다음 이하일 때 알림 전송</span>
     					<select class="form-control" id="autoAlertVal">
-							<option value="0.1">10%</option>
-							<option value="0.2">20%</option>
-							<option value="0.3">30%</option>
-							<option value="0.4">40%</option>
-							<option value="0.5">50%</option>
-							<option value="0.6">60%</option>
-							<option value="0.7">70%</option>
+							<option value="10">10%</option>
+							<option value="20">20%</option>
+							<option value="30">30%</option>
+							<option value="40">40%</option>
+							<option value="50">50%</option>
+							<option value="60">60%</option>
+							<option value="70">70%</option>
 							<option value="-1">사용안함</option>
 						</select>
     				</div>

@@ -17,6 +17,7 @@
 	
     <body>
     	<!-- 상단 네비게이션 바 -->
+    	<div id="device_id">{{device_id}}</div>
     	<div id="navbar_top">
     		<button id="navbar_top_backbtn" class="glyphicon glyphicon-menu-left" onclick="toMain()"></button>
     		<div id="navbar_top_btngroup" class="dropdown">
@@ -34,59 +35,48 @@
     		<h4 id="navbar_top_username">가상의 사용자</h4>    		
     	</div>
     	
-    	<div class="container_body">
-    		<button id="doorlock" class="btn_device" onclick="notYet()">
-    			<h4>도어락 1</h4>
-			</button>
-    		
-    		<button id="washmachine1" class="btn_device" data-toggle="collapse" 
-    		data-target="#washmachine1_devinfo" aria-expanded="false" aria-controls="switch1_devinfo">
-    			<h4>세탁기 1</h4>
-			</button>
-			<div class="collapse" id="washmachine1_devinfo">
-				<div class="well">
-   	 				<table id="info_switch1" class="table_ang">
-   	 					<tr>
-   	 						<th id="td_name" colspan="2">세탁기 1</th>
-   	 					</tr>
-   	 					<tr>
-   	 						<td colspan="2">
-   	 							<img id="devPic" src="/static/imgs/wahsing_machine_pic.png"/>
-   	 						</td>
-   	 					</tr>
-   	 					<tr>
-							<td>고유 번호</td>
-							<td id="SN">sample123</td>
-						</tr>
-						<tr>
-							<td>생산 일시</td>
-							<td id="date">YYYY MM DD HH:mm</td>
-						</tr>
-						<tr>
-							<td>보증 기간</td>
-							<td id="guarantee">구입일로부터 2년</td>
-						</tr>
-   	 					<tr>
-    						<td>남은 세제량 : </td>
-    						<td id="td_remain_det">22%</td>
-    					</tr>
-   	 					<tr>
-    						<td>상태 : </td>
-    						<td id="td_status">작동 가능</td>
-    					</tr>
-    					<tr>
-    						<td colspan="2">
-    							<button id="btn_rule" class="btn_save" onclick="toRule()">
-    								사용자 설정
-    							</button>
-    						</td>
-    					</tr>
-    				</table>
-    			</div>
-    		</div>
-			<button id="switch1" class="btn_device" onclick="notYet()">
-    			<h4>스위치 1</h4>
-			</button>
+    	<div class="container_body">	
+			<h3 id="h3_name">세탁기 1</h3>
+			<table id="table_" class="table_ang">
+				<tr>
+					<td colspan="2">
+						<img id="devPic" src="/static/imgs/wahsing_machine_pic.png"/>
+					</td>
+				</tr>
+				<tr>
+					<td>고유 번호</td>
+					<td id="SN">--</td>
+				</tr>
+				<tr>
+					<td>장치 유형</td>
+					<td id="type">--</td>
+				</tr>
+				<tr>
+					<td>생산 일시</td>
+					<td id="date">---- -- --</td>
+				</tr>
+				<tr>
+					<td>보증 기간</td>
+					<td id="guarantee">구입일로부터 2년</td>
+				</tr>
+				<tr>
+					<td colspan="2"><div class="divline_60"></div></td>
+				<tr>
+					<td>남은 세제량 : </td>
+					<td><span id="amount"></span>%</td>
+				</tr>
+				<tr>
+					<td>상태 : </td>
+					<td id="status">--</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<button id="btn_rule" class="btn_save" onclick="toRule()">
+							사용자 설정
+						</button>
+					</td>
+				</tr>
+			</table>
     	</div>
 
     	<!-- 하단 버튼 -->

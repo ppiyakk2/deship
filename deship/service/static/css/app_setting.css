@@ -9,6 +9,9 @@ body
 	background-color:white;
 	margin:auto auto;
 }
+#device_id{
+	display:none;
+}
 #navbar_top{
 	position:fixed;
 	top:0 !important;
@@ -173,6 +176,7 @@ body
 	padding-right:7px;
 }
 #btn_rule{
+	margin-top:10px;
 	width:88%;
 }
 #info_switch1{
@@ -212,6 +216,7 @@ body
 	width:95%;
 	height:auto;
 	margin:auto auto;
+	padding-top:9px;
 	margin-top:51px !important;
 	text-align:center;
 }
@@ -315,5 +320,12 @@ body
 	width:90%;
 	border-top:1px solid #D0D0D0;
 	margin:0px auto;
+}
+.divline_60
+{
+	height:1px;
+	width:60%;
+	border-top:1px solid #D0D0D0;
+	margin:8px auto;
 }
 /**********************************/

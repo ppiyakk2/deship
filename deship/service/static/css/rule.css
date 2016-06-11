@@ -9,6 +9,9 @@ body
 	background-color:white;
 	margin:auto auto;
 }
+#device_id{
+	display:none;
+}
 #navbar_top{
 	position:fixed;
 	top:0 !important;

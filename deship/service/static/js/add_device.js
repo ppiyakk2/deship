@@ -56,7 +56,7 @@ function getDeviceInfo()
 		type:"GET",
 		url:URLis,
 		dataType:"json",
-		succcess:function(data){	
+		succcess:function(data){
 		},
 		statusCode:{
 			200:function(data){
