@@ -14,7 +14,9 @@ def local_db(debug=False):
 
 
 def city_db():
-    return r.connect(host=db['city_domain'], port=db['city_port'])
+    con = r.connect(host=db['city_domain'], port=db['city_port'])
+    rdb = r.db('gyunggido')
+    return rdb, con
 
 
 def service_db():

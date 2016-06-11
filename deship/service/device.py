@@ -39,5 +39,13 @@ def get_device_info(serial_no):
 
 @app.route('/device', methods=['GET'])
 def get_devices():
+    if 'user_id' not in request.cookies:
+        return 'Login Required', 400
+
     devices = device.list_devices()
     return jsonify(devices=devices)
+
+
+@app.route('/device/<serial_no>/status', methods=['GET'])
+def get_device_status(serial_no):
+    return jsonify(device_status={'power': 1, 'amount': 50.5})

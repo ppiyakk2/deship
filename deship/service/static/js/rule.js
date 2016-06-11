@@ -51,15 +51,6 @@ function toMain()
 	window.location.replace("/main");
 }
 
-// 소모품 목록 획득
-/*
- * 
- * 
- * 			소모품 목록을 서버에서 받아와 설정 화면에 표시
- * 
- * 
- * 
- *
 $(function(){
 	var item;
 	var URLis = "/item/";
@@ -74,22 +65,17 @@ $(function(){
 			var content="";
 			$.each(item ,function(index, entry){
 				content += "<button id=\"btn_"+entry.item_id+"\" class=\"btn_item\" value=\""+entry.item_id+"\" onclick=\"itemSelect(id)\">"
-    						+"<img id=\"img_"+entry.item_id+"\" class=\"img_item\" src=\"/static/imgs/"+entry.item_id+".png\"/>"
+    						+"<img id=\"img_"+entry.item_id+"\" class=\"img_item\" src=\"/static/imgs/item2.png\"/>"
     						+"<div class=\"divp_item\">"
-    							+"<p class=\"item_name\">"+entry.item_name+"</p>"
-    							+"<p class=\"item_price\">"+" 원</p>"
+    							+"<p class=\"item_name\">"+entry.name+"</p>"
+    							+"<p class=\"item_price\">"+ entry.price +" 원</p>"
     						+"</div>"
     					+"</button>";
 			});
-			$("#div_itemlist").html(content);
+			$("#div_itemlist2").html(content);
 		}
 	});
 });
-* 
-* 
-* 
-* 
-* */
 
 // 사용자 설정값 로드
 $(function(){
