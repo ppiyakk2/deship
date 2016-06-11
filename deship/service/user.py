@@ -1,3 +1,4 @@
+import base64
 from flask import request, redirect, url_for
 
 from . import app
@@ -17,11 +18,10 @@ def user_register():
 def user_login():
     data = request.values
 
-    result, name = users.diff_password(data)
+    result = users.diff_password(data)
     if result:
         response = app.make_response('ok')
         response.set_cookie('user_id', data['ID'])
-        response.set_cookie('user_name', name)
         return response
     else:
         return 'password not matched', 400

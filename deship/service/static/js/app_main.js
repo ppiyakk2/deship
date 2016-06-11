@@ -2,10 +2,7 @@
 $(function()
 {
 	var id = $.cookie('user_id');
-	var name = $.cookie('user_name');
 	decodeURIComponent(id);
-	decodeURIComponent(name);
-	$('#navbar_top_username').html(name);
 });
 
 // 상단 네비게이션 바 드롭다운 제어
@@ -48,9 +45,9 @@ function toMain()
 // 상세보기
 function toDetail(thisID)
 {
-	if(thisID == "12345")
+	if(thisID == "MSIP-CCM-HUW-H1512")
 	{
-		window.location.href= "http://211.198.65.241:38080/setting/"+thisID;
+		window.location.href= "/setting/"+thisID;
 	}
 	else
 	{

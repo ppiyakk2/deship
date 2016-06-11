@@ -2,10 +2,7 @@
 $(function()
 {
 	var id = $.cookie('user_id');
-	var name = $.cookie('user_name');
 	decodeURIComponent(id);
-	decodeURIComponent(name);
-	$('#navbar_top_username').html(name);
 });
 
 // 장치 ID 획득

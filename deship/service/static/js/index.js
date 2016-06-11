@@ -27,7 +27,7 @@ function register()
 				statusCode:{
 					200:function(){
 						alert("등록이 완료되었습니다.");
-						window.location.replace("http://211.198.65.241:38080/");
+						window.location.replace("/");
 					},
 					400:function(){
 						alert("이미 존재하는 ID입니다.");
@@ -56,7 +56,7 @@ function signin()
 		data:{"ID": id, "passwd": pw},
 		statusCode:{
 					200:function(){
-						window.location.replace("http://211.198.65.241:38080/main");
+						window.location.replace("/main");
 					},
 					400: function() {
 						alert("사용자 계정이나 암호가 일치하지 않습니다.");

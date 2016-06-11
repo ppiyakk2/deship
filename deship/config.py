@@ -5,7 +5,7 @@ telehash_conf_path = None
 database = {
     'city_domain': 'printf.kr',
     'city_port': 28015,
-    'service_domain': 'printf.kr',
+    'service_domain': '192.168.0.24',
     'service_port': 28015
 }
 
@@ -21,25 +21,25 @@ logging = {
         'database': {
             'class': 'logging.handlers.WatchedFileHandler',
             'level': 'DEBUG',
-            'filename': '/home/vagrant/log/database.log',
+            'filename': '/home/pi/log/database.log',
             'formatter': 'verbose'
         },
         'telehash': {
             'class': 'logging.handlers.WatchedFileHandler',
             'level': 'DEBUG',
-            'filename': '/home/vagrant/log/telehash.log',
+            'filename': '/home/pi/log/telehash.log',
             'formatter': 'verbose'
         },
         'service': {
             'class': 'logging.handlers.WatchedFileHandler',
             'level': 'DEBUG',
-            'filename': '/home/vagrant/log/service.log',
+            'filename': '/home/pi/log/service.log',
             'formatter': 'verbose'
         },
         'common': {
             'class': 'logging.handlers.WatchedFileHandler',
             'level': 'DEBUG',
-            'filename': '/home/vagrant/log/common.log',
+            'filename': '/home/pi/log/common.log',
             'formatter': 'verbose'
         },
         'console': {

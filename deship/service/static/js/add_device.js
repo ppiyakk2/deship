@@ -2,10 +2,7 @@
 $(function()
 {
 	var id = $.cookie('user_id');
-	var name = $.cookie('user_name');
 	decodeURIComponent(id);
-	decodeURIComponent(name);
-	$('#navbar_top_username').html(name);
 });
 
 // 상단 네비게이션 바 드롭다운 제어
@@ -65,7 +62,7 @@ function getDeviceInfo()
 				$("#name").html(device.device_name);
 				$("#type").html(device.device_type);
 				$("#date").html(device.productive_date);
-				if(device.device_name == "성수성수"){
+				if(device.device_name == "TS19VD1"){
 					$("#device_picture").attr("src","/static/imgs/wahsing_machine_pic.png");
 				}
 			},
@@ -93,8 +90,7 @@ function getDeviceInfo()
 function addDevice_R()
 {
 	var SN = $("#register_userid").val();
-	var URLis="/device/";
-	URLis += SN;
+	var URLis="/device";
 	$.ajax({
 		type:"POST",
 		url:URLis,

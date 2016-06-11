@@ -3,7 +3,7 @@ from . import local_db, service_db
 
 def add_device(serial_no, user_id):
     db, con = service_db()
-    device = db.table('device').get(serial_no).run(con)
+    device = db.table('devices').get(serial_no).run(con)
 
     if device is None:
         return 1
@@ -12,20 +12,20 @@ def add_device(serial_no, user_id):
         return 2
 
     device['user_id'] = user_id
-    db.table('device').get(serial_no).update({'user_id': user_id}).run(con)
+    db.table('devices').get(serial_no).update({'user_id': user_id}).run(con)
 
-    ldb, lcon = local_db(debug=True)
+    ldb, lcon = local_db()
     ldb.table('device').insert(device).run(lcon)
 
     return 3
 
 
 def list_devices():
-    ldb, lcon = local_db(debug=True)
+    ldb, lcon = local_db()
     return list(ldb.table('device').run(lcon))
 
 
 def get_device(serial_no):
     db, con = service_db()
-    device = db.table('device').get(serial_no).run(con)
+    device = db.table('devices').get(serial_no).run(con)
     return device

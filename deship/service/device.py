@@ -31,9 +31,6 @@ def get_device_info(serial_no):
     if d is None:
         return 'No Device', 404
 
-    if d['user_id'] is not None:
-        return 'Already registered', 409
-
     return jsonify(device=d)
 
 

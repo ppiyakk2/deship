@@ -2,7 +2,7 @@ from . import local_db
 
 
 def add_device_rule(device_id, data):
-    db, con = local_db(debug=True)
+    db, con = local_db()
     exist = db.table('device_rule').get(device_id).run(con)
 
     rule = {
@@ -16,7 +16,7 @@ def add_device_rule(device_id, data):
 
 
 def get_device_rule(device_id):
-    db, con = local_db(debug=True)
+    db, con = local_db()
     ret = db.table('device_rule').get(device_id).run(con)
     if ret is None:
         return None

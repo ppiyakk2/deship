@@ -2,7 +2,7 @@ from . import local_db, city_db
 
 
 def get_item_list(device_id):
-    ldb, lcon = local_db(debug=True)
+    ldb, lcon = local_db()
 
     device_type = ldb.table('device').get(device_id).pluck('device_type').run(lcon)
 
