@@ -31,17 +31,17 @@ class Device:
     def save(self):
         con = get_connect()
         d = self.__dict__
-        r.db('service_provider').table('device').insert(d).run(con)
+        r.db('service_provider').table('devices').insert(d).run(con)
 
     @classmethod
     def select_all(cls):
         con = get_connect()
-        return list(r.db('service_provider').table('device').run(con))
+        return list(r.db('service_provider').table('devices').run(con))
 
     @classmethod
     def select_by_user(cls, user_id):
         con = get_connect()
-        return list(r.db('service_provider').table('device')
+        return list(r.db('service_provider').table('devices')
                     .filter({'user_id': user_id}).run(con))
 
 

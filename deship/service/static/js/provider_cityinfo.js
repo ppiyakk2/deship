@@ -2721,7 +2721,7 @@ $(function(){
 
 // 해당 도시 정보 획득
 $(function(){
-	var URLis = "/cityname/";
+	var URLis = "/city/";
 	URLis += tcID;
 	$.ajax({
 		type:'GET',
@@ -2729,8 +2729,8 @@ $(function(){
 		dataType:'json',
 		success:function(data)
 		{
-			var cityname = data.name;
-			$("#cityname").html("<em>"+data.name+"</em>");
+			var cityname = data.city_name;
+			$("#cityname").html("<em>"+cityname+"</em>");
 		}	
 	});
 });
@@ -2810,8 +2810,8 @@ $(function(){
 // 협력업체 등록
 function addCoop()
 {
-	var name = $("#register_Coop_name").val();
-	var category = $("#register_Coop_category").val();
+	var name = $("#register_SN").val();
+	var category = $("#register_device_type").val();
 	var address= $("#register_Coop_address").val();
 	$.ajax({
 		type : 'POST',
@@ -2821,7 +2821,8 @@ function addCoop()
 		{
 				"name":name,
 				"category":category,
-				"cityid":tcID
+                "address": address,
+				"city_id":tcID
 		}
 	});
 }
@@ -2833,32 +2834,19 @@ $(function(){
 			url:'/cooperation',
 			dataType:'json',
 			success:function(data){
-				var cooplist = data["cooplist"];
+				var cooplist = data["cooperations"];
 				var category = "미정";
 				$.each(cooplist, function(entryIndex, entry){
-					if(entry.category == "sell")
-						category == "판매업";
-					else if(entry.category == "fix")
-						category == "수리업";
+                    category = entry.category;
+                    var aurl = "/cooperation/"+entry.id+"/telehash"
 					$("#tr_Cooplist").after("<tr>"+
 				    				"<td>"+entry.name+"</td>"+
 				    				"<td>"+category+"</td>"+
-				    				"<td><button id=\""+entry.coop_id+"\" class=\"btn_ang\" onclick=\"show_telehash(id)\">받기</button></td></tr>");
+				    				"<td><a href=\""+aurl+"\">"+"<button id=\""+entry.id+"\" class=\"btn_ang\">받기</button></a></td></tr>" +
+                        "");
 				});
 			}
 		}
 	);
 	
 });
-
-function show_telehash(thisID){
-	var URLis = "/cooperation/"+thisID;
-	URLis += "/telehash";	
-	$.ajax({
-		type:'GET',
-		url:URLis,
-		dataType:'file',
-		success:function(data){
-		}
-	});
-}

@@ -10,6 +10,12 @@ def get_city_list():
     return jsonify(citylist=citylist)
 
 
+@app.route('/city/<id>', methods=['GET'])
+def get_city(id):
+    c = city.get_city_by_id(id)
+    return jsonify(city_name=c['name'])
+
+
 @app.route('/city/<id>/status', methods=['GET'])
 def city_cluster_status(id):
     c = city.get_city_by_id(id)
