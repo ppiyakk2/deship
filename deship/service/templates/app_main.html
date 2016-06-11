@@ -12,7 +12,6 @@
     <!-- JQuery, Ajax, 부트스트랩 컴포넌트 연동 -->
     <script src="/static/js/jquery-2.2.4.js"></script>
     <script src="/static/js/jquery.cookie.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="/static/js/bootstrap.js"></script>	
 	<script src="/static/js/app_main.js"></script>
 	
@@ -32,40 +31,34 @@
 	    			<button id="btn_logout" class="btn_ang" onclick="logout()">로그 아웃</button>
 	    		</div>
     		</div>
-    		<h4 id="navbar_top_username">가상의 사용자</h4>    		
+    		<h4 id="navbar_top_username">--</h4>    		
     	</div>
     	
     	
     	<div id="container_components">
     		<h3>스마트 홈 장치 상태</h3>
     		<div class="divline_90"></div>
-    			<button id="switch1" class="component_device_btn" onclick="toRule(id)">
-    				<h5>스위치 1</h5>
-    				<img id="icon_switch" class="dev_icon" src="/static/img/switch.png"/>
-    				<p>상태 : <span>켜짐</span></p>
-    			</button>
-    		
-    			<button id="washing_machine" class="component_device_btn" onclick="toRule(id)">
-    				<h5>세탁기 1</h5>
-    				<img id="icon_washing_machine" class="dev_icon" src="/static/img/washing_machine.png"/>
-    				<p>상태 : <span>작동가능</span></p>
-    				<p>세제 잔여량 : <span>%</span></p>
-    			</button>
-    		
-    			<button id="door_lock" class="component_device_btn" onclick="toRule(id)">
-    				<h5>도어락 1</h5>
-    				<img id="icon_doorlock" class="dev_icon" src="/static/img/doorlock.png"/>
-    				<p>상태 : <span>잠김</span></p>
-    				<p>배터리 잔여량 : <span>%</span></p>
-    			</button>
-    	
-    			<button id="door_lock" class="component_device_btn" onclick="toRule(id)">
-    				<h5>도어락 1</h5>
-    				<img id="icon_doorlock" class="dev_icon" src="/static/img/doorlock.png"/>
-    				<p>상태 : <span>잠김</span></p>
-    				<p>배터리 잔여량 : <span>%</span></p>
-    			</button>
-    		
+    			<div id="div_devicelist">
+	    			<!--<button id="door_lock" class="component_device_btn" onclick="toRule(id)">
+	    				<h5>도어락 1</h5>
+	    				<img id="icon_doorlock" class="dev_icon" src="/static/imgs/doorlock.png"/>
+	    				<p>상태 : <span>잠김</span></p>
+	    				<p>배터리 잔여량 : <span></span>%</p>
+	    			</button>
+	    			
+	    			<button id="washing_machine" class="component_device_btn" onclick="toRule(id)">
+	    				<h5>세탁기 1</h5>
+	    				<img id="icon_washing_machine" class="dev_icon" src="/static/imgs/washing_machine.png"/>
+	    				<p>상태 : <span>작동가능</span></p>
+	    				<p>세제 잔여량 : <span></span>%</p>
+	    			</button>
+	    		
+	    			<button id="switch1" class="component_device_btn" onclick="toRule(id)">
+	    				<h5>스위치 1</h5>
+	    				<img id="icon_switch" class="dev_icon" src="/static/imgs/switch.png"/>
+	    				<p>상태 : <span>켜짐</span></p>
+	    			</button>-->
+    			</div>
     	</div>
     	
     	<!-- 하단 버튼 모음 바 -->

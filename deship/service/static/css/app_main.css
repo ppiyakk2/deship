@@ -185,6 +185,12 @@ p{
 	display:inline-block;
 	margin-top:5px;
 }
+#div_devicelist{
+	display:inline-block;
+	width:auto;
+	height:auto;
+	margin:auto auto;
+}
 /***** 별도의 컴포넌트 스타일 시트 *****/
 .component_device_btn{
 	width:47%;

@@ -1,8 +1,11 @@
 // 사용자 ID 획득
-var userID;
-$(function(){
-	userID = "SampleUser";
-	$("#navbar_top_username").html(userID);
+$(function()
+{
+	var id = $.cookie('user_id');
+	var name = $.cookie('user_name');
+	decodeURIComponent(id);
+	decodeURIComponent(name);
+	$('#navbar_top_username').html(name);
 });
 
 // 상단 네비게이션 바 드롭다운 제어

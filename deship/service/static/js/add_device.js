@@ -1,8 +1,11 @@
 // 사용자 ID 획득
-var userID;
-$(function(){
-	userID = "SampleUser";
-	$("#navbar_top_username").html(userID);
+$(function()
+{
+	var id = $.cookie('user_id');
+	var name = $.cookie('user_name');
+	decodeURIComponent(id);
+	decodeURIComponent(name);
+	$('#navbar_top_username').html(name);
 });
 
 // 상단 네비게이션 바 드롭다운 제어
@@ -63,11 +66,7 @@ function getDeviceInfo()
 				$("#type").html(device.device_type);
 				$("#date").html(device.productive_date);
 				if(device.device_name == "성수성수"){
-					$("#device_picture").attr("src","/static/img/washing_machine2.png");
-				}
-				else{
-					
-					alert("등록된 이미지가 없습니다.");
+					$("#device_picture").attr("src","/static/imgs/wahsing_machine_pic.png");
 				}
 			},
 			400:function(){
@@ -75,7 +74,7 @@ function getDeviceInfo()
 				$("#name").html("--");
 				$("#type").html("--");
 				$("#date").html("---- -- --");
-				$("#device_picture").attr("src","/static/img/no_img.png");
+				$("#device_picture").attr("src","/static/imgs/no_img.png");
 				alert("이미 등록된 장치입니다.");
 				},
 			404:function(){
@@ -83,7 +82,7 @@ function getDeviceInfo()
 				$("#name").html("--");
 				$("#type").html("--");
 				$("#date").html("---- -- --");	
-				$("#device_picture").attr("src","/static/img/no_img.png");
+				$("#device_picture").attr("src","/static/imgs/no_img.png");
 				alert("존재하지 않는 장치입니다.");	
 				}
 		}

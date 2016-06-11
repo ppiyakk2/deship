@@ -11,8 +11,7 @@
     </head>
     <!-- JQuery, Ajax, 부트스트랩 컴포넌트 연동 -->
     <script src="/static/js/jquery-2.2.4.js"></script>
-     <script src="/static/js/jquery.cookie.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="/static/js/jquery.cookie.js"></script>
 	<script src="/static/js/bootstrap.js"></script>	
 	<script src="/static/js/app_setting.js"></script>
 	
@@ -36,9 +35,10 @@
     	</div>
     	
     	<div class="container_body">
-    		<button id="switch1" class="btn_device" onclick="notYet()">
-    			<h4>스위치 1</h4>
+    		<button id="doorlock" class="btn_device" onclick="notYet()">
+    			<h4>도어락 1</h4>
 			</button>
+    		
     		<button id="washmachine1" class="btn_device" data-toggle="collapse" 
     		data-target="#washmachine1_devinfo" aria-expanded="false" aria-controls="switch1_devinfo">
     			<h4>세탁기 1</h4>
@@ -48,6 +48,11 @@
    	 				<table id="info_switch1" class="table_ang">
    	 					<tr>
    	 						<th id="td_name" colspan="2">세탁기 1</th>
+   	 					</tr>
+   	 					<tr>
+   	 						<td colspan="2">
+   	 							<img id="devPic" src="/static/imgs/wahsing_machine_pic.png"/>
+   	 						</td>
    	 					</tr>
    	 					<tr>
 							<td>고유 번호</td>
@@ -79,9 +84,8 @@
     				</table>
     			</div>
     		</div>
-
-			<button id="doorlock" class="btn_device" onclick="notYet()">
-    			<h4>도어락 1</h4>
+			<button id="switch1" class="btn_device" onclick="notYet()">
+    			<h4>스위치 1</h4>
 			</button>
     	</div>
 

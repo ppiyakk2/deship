@@ -187,6 +187,11 @@ body
 #btn_rule{
 	font-size:14pt;
 }
+#devPic{
+	width:170px;
+	height:170px;
+	margin:8px 8px;
+}
 /***** 별도의 컴포넌트 스타일 시트 *****/
 .div_vertical_80{
 	width:1px;

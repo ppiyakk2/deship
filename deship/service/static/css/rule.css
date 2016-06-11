@@ -219,7 +219,9 @@ body
 	float:right;
 	margin-top:30px;
 }
-#selectedItem{
+#selected_item{
+	background-color: RGBA(222,222,222,0.4);
+	padding:3px 3px;	
 }
 /***** 별도의 컴포넌트 스타일 시트 *****/
 .padding_left{
