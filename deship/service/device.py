@@ -1,7 +1,7 @@
 from flask import request, jsonify
 
 from . import app
-from deship.database import device
+from deship.database import device, monitor
 
 
 @app.route('/device', methods=['POST'])
@@ -45,4 +45,18 @@ def get_devices():
 
 @app.route('/device/<serial_no>/status', methods=['GET'])
 def get_device_status(serial_no):
-    return jsonify(device_status={'power': 1, 'amount': 50.5})
+    value = monitor.get_sensor_data(serial_no)
+
+    amount = 0
+    power = 0
+    if value is not None:
+        power = 1
+        amount = round(value, 2)
+
+    return jsonify(device_status={'power': power, 'amount': amount})
+
+
+@app.route('/device/<serial_no>/alarm', methods=['GET'])
+def get_device_alarm(serial_no):
+    alarm = monitor.check_alarm(serial_no)
+    return jsonify(alarm=alarm)

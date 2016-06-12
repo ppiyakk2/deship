@@ -58,7 +58,7 @@ function toDetail(thisID)
 // 장치 유형 구분
 function typeAcog(type){
 	var content="";
-	if(type == "세탁기")
+	if(type == "washer")
 	{
 		content+= "<img id=\"icon_washing_machine\" class=\"dev_icon\" src=\"/static/imgs/washing_machine.png\"/>"+
     				"<p>상태 : <span class=\"dev_status\">--</span></p>"+
@@ -119,8 +119,26 @@ function each_Update()
 {
 	$.each(device_list, function(index, entry){
 		updateStatus(entry.SN);
+		checkAlarm(entry.SN);
 	});
 }
+
+function checkAlarm(thisSN)
+{
+	var URLis="/device/";
+	URLis += thisSN +"/alarm";
+	$.ajax({
+		type:"GET",
+		url:URLis,
+		dataType:"json",
+		success:function(data){
+			var status = data["alarm"];
+			if(status)
+				alert("세탁기에 세제가 부족합니다.")
+		}
+	});
+}
+
 // 장치 상태 실시간 갱신
 function updateStatus(thisSN){
 	var URLis="/device/";

@@ -43,7 +43,7 @@ if __name__ == '__main__':
 
     service_pid = service_server.run_service()
     #message_pid = TelehashServer().run()
-    #manager_pid = device_manager.run()
+    manager_pid = device_manager.run()
 
     signal.signal(signal.SIGTERM, sigterm)
     signal.signal(signal.SIGINT, sigterm)

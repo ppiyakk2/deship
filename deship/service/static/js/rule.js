@@ -118,7 +118,9 @@ function saveRule()
 		},
 		statusCode:{
 			200:function(){
-				//window.location.replace("/setting/"+thisSN);
+				//
+				alert("설정이 저장되었습니다.")
+				window.location.replace("/setting/"+thisSN);
 			}
 		}
 	});

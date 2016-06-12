@@ -107,9 +107,27 @@ function updateStatus(thisSN){
 	});
 }
 
+
+function checkAlarm(thisSN)
+{
+	var URLis="/device/";
+	URLis += thisSN +"/alarm";
+	$.ajax({
+		type:"GET",
+		url:URLis,
+		dataType:"json",
+		success:function(data){
+			var status = data["alarm"];
+			if(status)
+				alert("세탁기에 세제가 부족합니다.")
+		}
+	});
+}
+
 // 장치 상태 1초 단위 갱신
 $(function(){
-	setInterval("updateStatus()",1000);
+	setInterval("updateStatus('MSIP-CCM-HUW-H1512')",1000);
+	setInterval("checkAlarm('MSIP-CCM-HUW-H1512')",1000);
 });
 // 하단 버튼 중앙 정렬
 /*$( document ).ready(function() {
