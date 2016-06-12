@@ -24,13 +24,19 @@ def get_user(user_id):
 
 
 def diff_password(data):
+    ldb, lcon = local_db()
+    user_id = ldb.table('assets').get('user_id').run(lcon)['user_id']
+
+    if user_id != data['ID']:
+        return 2
+
     db, con = service_db()
     re = db.table('users').get(data['ID']).pluck('passwd').run(con)
 
     if re is None:
-        return False
+        return 0
 
     if data['passwd'] == re['passwd']:
-        return True
+        return 1
     else:
-        return False
+        return 0

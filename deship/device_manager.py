@@ -31,7 +31,10 @@ def run():
             monitor.save_sensor_data(device_id, value_percent, alarm)
 
             if value_percent < float(r['criteria']):
-                monitor.do_order(device_id, r['item_id'])
+                if not monitor.is_ordered(device_id, r['item_id']):
+                    monitor.do_order(device_id, r['item_id'])
+            else:
+                monitor.delete_ordered_record(device_id, r['item_id'])
 
     else:
         return pid

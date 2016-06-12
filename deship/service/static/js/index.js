@@ -59,7 +59,10 @@ function signin()
 						window.location.replace("/main");
 					},
 					400: function() {
-						alert("사용자 계정이나 암호가 일치하지 않습니다.");
+						alert("사용자 계정과 비밀번호를 다시한번 확인해주시기바랍니다.");
+					},
+					401: function() {
+						alert("이 홈게이트웨이의 사용자가 아닙니다");
 					}
 				}
 	});

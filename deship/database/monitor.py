@@ -1,4 +1,4 @@
-from . import local_db
+from . import local_db, city_db, service_db
 import time
 
 
@@ -51,6 +51,48 @@ def get_sensor_data(device_id):
     return sd['value']
 
 
+def is_ordered(device_id, item_id):
+    db, con = local_db()
+    try:
+        ret = db.table('assets')\
+            .filter({'item_key': 'ordered', 'device_id': device_id,
+                     'item_id': item_id}).run(con)
+    except Exception:
+        return False
+
+    if len(list(ret)) == 0:
+        return False
+    else:
+        return True
+
+
+def delete_ordered_record(device_id, item_id):
+    db, con = local_db()
+    db.table('assets')\
+        .filter({'item_key': 'ordered', 'device_id': device_id,
+                 'item_id': item_id}).delete().run(con)
+
+
 def do_order(device_id, item_id):
-    # check already ordered
-    pass
+    from datetime import datetime
+
+    tx_data = {'from': '', 'to': '', 'item_id': item_id, 'device_id': device_id,
+               'request_tx': str(datetime.now()), 'request_done': False, 'address': ''}
+
+    db, con = local_db()
+
+    user_id = db.table('assets').get('user_id').run(con)['user_id']
+    tx_data['from'] = user_id
+
+    cdb, ccon = city_db()
+    cooper_id = cdb.table('cooperation_item').get(item_id).pluck('co_id').run(ccon)['co_id']
+    tx_data['to'] = cooper_id
+
+    sdb, scon = service_db()
+    address = sdb.table('users').get(user_id).pluck('address').run(scon)['address']
+    tx_data['address'] = address
+
+    cdb.table('transaction').insert(tx_data).run(ccon)
+
+    d = {'item_key': 'ordered', 'device_id': device_id, 'item_id': item_id}
+    db.table('assets').insert(d).run(con)

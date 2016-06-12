@@ -19,9 +19,11 @@ def user_login():
     data = request.values
 
     result = users.diff_password(data)
-    if result:
+    if result == 1:
         response = app.make_response('ok')
         response.set_cookie('user_id', data['ID'])
         return response
-    else:
+    elif result == 0:
         return 'password not matched', 400
+    elif result == 2:
+        return 'not owner', 401
