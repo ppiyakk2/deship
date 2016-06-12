@@ -143,6 +143,10 @@ function detailOf(value){
 	
 	// 요청 상세정보 조회 샘플 코드
 	var reqinfo = sample_request["request"];
+	var imgname;
+	if(reqinfo.device_name == "좋은 세탁기"){
+		imgname = "washing_machine_pic";
+	}
 	$("#img_device").attr("src","/static/imgs/"+reqinfo.device_name+".png");
 	$("#req_SN").html(reqinfo.SN);
 	$("#req_user_name").html(reqinfo.user_name);
