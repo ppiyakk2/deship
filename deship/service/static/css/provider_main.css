@@ -8,7 +8,6 @@
 body
 {
 	font-family: 'Nanum Barun Gothic', 'Nanum Gothic', '돋움', sans-serif;
-	background-color:RGBA(222,222,222,0.1);
 }
 #container_navbar_top
 {
@@ -62,151 +61,34 @@ body
 /**********************************/
 
 /***** 몸통 컨테이너 스타일 시트 *****/
+#container_rightF{
+	display:inline-block;
+	width:77%;
+}
 #container_body
 {
+	width:100%;
+	height:100%;
 	background-color:white;
+	text-align:center;
+	margin-top:55px;
+	padding-bottom:20px;
+	display:block;
+}
+#container_header{
+	width:88%;
 	height:auto;
-	text-align:center;
-	padding-top:70px;
-	margin-left:15%;
-	margin-right:15%;
-	padding-bottom:40px;
-	margin-bottom:3%;
-}
-#container_SVGheader
-{
-	padding-top:5pt;
-	padding-bottom:10pt;
-	text-align:center;
-	font-size: 3em;
-	float:clear;
-}
-#container_SVG_p
-{
-	margin:0 auto;
-	text-align:center;
 	display:block;
+	margin:auto auto;
 }
-#container_SVG_p>*
-{
-	display:inline-block;
-}
-#container_SVG
-{
-	display:block;
-	margin:auto;
-	width:auto;
-}
-#chart_cluster_util
-{
-	padding-left:80px;
-}
-#container_SVG>h3
-{
-	position:relative;
-	top:-14px;
-	margin-top:0px;
-	margin-bottom:25px;
-}
-#container_PiSVG
-{
-	display:inline-block;
-	margin:auto;
-	width:auto;
-}
-#container_SVGinfo
-{
-	display:inline-block;
-	margin-bottom:30px;
-	width:auto;
-	position:relative;
-}
-#nodes_stat_num
-{
-	position:relative;
-	font-size:18pt;
-	top:110px;
-	right:48px;
-}
-#active_stat_num
-{
-	position:relative;
-	top:107px;
-	right:48px;
-}
-#util_stat_num
-{
-	position:relative;
-	top:107px;
-	right:48px;
-}
-#container_SVGinfo>div
-{
-	display:inline-block;
-	margin-right:9px;
-	text-align:center !important;
-	border-left:1px solid #D0d0d0;
-	padding-left:15px;
-}
-#container_SVGinfo>div>div
-{
-	
-}
-#container_PiSVGinfo
-{
-	display:inline-block;
-	margin-left:30px;
-	width:auto;
-	position:relative;
-}
-#container_SVGinfo>div>span
-{
-	padding-left:3px;
-	font-size:15pt;
-}
-#container_SVGinfo>div>p
-{
-	
-	padding-left:12px;
-	font-size:19pt;
-}
-#container_PiSVGinfo>div
-{
-	border-left:1px solid #D0D0D0;
-	padding-left:10px;	
-	margin-top:20px;
-	margin-bottom:30px;
-	text-align:left;
-}
-#container_PiSVGinfo>div>span
-{
-	padding-left:3px;
-	font-size:11pt;
-}
-#container_PiSVGinfo>div>p
-{
-	
-	padding-left:12px;
-	font-size:12pt;
-}
-#container_Pi_p
-{
-	display:block;
-	margin:auto;
-	margin-top:35px;
-	width:85%;
-	border-top:1px solid #d0d0d0;
-}
-/**********************************/
-
-/***** 기기 & 사용자 정보 컨테이너 스타일 시트 *****/
 #container_infolist
 {
-	border-top:1px solid #D0D0D0;
-	margin-left:3%;
-	margin-right:3%;
-	margin-top:20px;
-	padding-top:30px;
+	display:block;
+	width:88%;
+	height:100%;
+	margin:auto auto;
+	padding:10px 20px;
+	background-color:white;
 }
 #btn_3rdlist
 {
@@ -270,20 +152,31 @@ body
 	padding-top:5px;
 	padding-bottom:5px;
 }
+#btnContainer{
+	display:inline-block;
+	height:100%;
+	margin:0 0;
+	padding:0 0;
+}
 #container_citylist
 {
-	margin-top:30px;
-	border-top:1px solid #D0D0D0;
-	padding-top:15px;
+	display:inline-block;
+	width:220px;
+	padding-right:15px;
+	height:100%;
+	border-right:1px solid #d0d0d0;
 }
 #btnlist_city
 {
-	margin:30px 15px;;
+	margin:10px 15px;;
 	padding:5px 5px;
 }
 /**********************************/
 
 /***** 별도의 컴포넌트 스타일 시트 *****/
+.well{
+	padding-top:9px;
+}
 .fields>text
 {
 	width:30px !important;
@@ -309,11 +202,10 @@ body
 .btn_transp
 {
 	border-radius:4px;
-	padding:5px;
-	padding-left:7px;
-	padding-right:7px;
+	padding:5px 12px;
 	color:white;
 	border:0px;
+	font-size:15pt !important;
 }
 #col_3rdlist
 {
@@ -322,6 +214,14 @@ body
 #col_3rdlist>div
 {
 	border:0px;
+}
+.btn_arrow{
+	background-color:transparent;
+	border:0px;
+	font-size:20pt;
+	margin:0 3px;
+	padding:0 0;
+	color:RGBA(77,77,77,0.7);
 }
 .btn_ang
 {
@@ -353,21 +253,31 @@ body
 }
 .citybtn
 {
-	font-size:25pt;
-	padding:9pt 14pt;
+	width:160px;
+	height:auto;
+	font-size:18pt;
+	background-color:RGBA(244,244,244,0.3);
+	color:black;
+	padding:9px 40px;
 	font-weight:normal;
-	border-radius:6pt;
-	margin:15px; 10px;
+	border-radius:4pt;
+	margin:15px auto;
+	border-top:1px solid #d0d0d0;
+	border-bottom:1px solid #d0d0d0;
+}
+.citybtn:hover{
+	text-decoration: none !important;
+	color:black;
 }
 .citybtn:active
 {
 	text-decoration: none !important;
-	color:white;
+	color:black;
 }
 .citybtn:visited
 {
 	text-decoration:none !important;
-	color:white;
+	color:black;
 }
 .table_ang
 {
@@ -417,6 +327,13 @@ body
 {
 	height:1px;
 	width:60%;
+	border-top:1px solid #D0D0D0;
+	margin:15px auto;
+}
+.divline_90
+{
+	height:1px;
+	width:90%;
 	border-top:1px solid #D0D0D0;
 	margin:15px auto;
 }

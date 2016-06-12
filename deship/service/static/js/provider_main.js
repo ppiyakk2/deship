@@ -2777,7 +2777,7 @@ $(function (){
 			cityList = data['citylist'];
 			$.each(cityList, function(entryIndex, entry){
 				$("#btnlist_city").append(
-					"<a href=\"/provider_cityinfo/"+entry.id+"\" class=\"btn_ang citybtn\" id=\""+entry.id+"\">"+entry.name+"</a>"
+					"<a type=\"button\" href=\"/provider_cityinfo/"+entry.id+"\" class=\"citybtn\" id=\""+entry.id+"\">"+entry.name+"</a>"
 				);
 			});		
 		}
@@ -2824,7 +2824,7 @@ function userDetailClicked(thisID)
 		dataType:'json',
 		success:function(data2){
 			var devlist = data2["devicelist"];
-			var content = "<tr><th>제품 번호</th><th>제품명</th><th>제품 유형</th><th>생산 일시</th></tr><tr><td>SAMPLE123</td>	<td>예시제품</td><td>전시품</td><td>YYYY MM DD HH:mm</td></tr>";
+			var content = "<tr><th>제품 번호</th><th>제품명</th><th>제품 유형</th><th>생산 일시</th></tr>";
 			$.each(devlist, function(entryIndex, entry){
 				content+=	"<tr><td>"+entry.SN+"</td>"+		
 				  			"<td>"+entry.device_name+"</td>"+

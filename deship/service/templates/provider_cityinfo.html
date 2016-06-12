@@ -64,49 +64,7 @@
 						<h3>클러스터 처리율 그래프(Cluster Through-put Chart)</h3>
 							 
 				</div>
-				<div id="container_Pi_p">
-					<div id="container_PiSVG">
-						<div id="chart_city_scale"></div>
-						<script>
-						    var options = {
-						        'legend':{
-						            names: [['City A'], ['Other City']]
-						        },
-						        'dataset': {
-						            title: 'city scale chart',
-						            values: [[32.6],[67.4]],
-						            degree_values:[326, 674],
-						            colorset: ['#009e73', '#56b4e9'],
-						            fields: ['City A', 'Other City'],
-						            opacity:[0.8, 0.25]
-						        },
-						        'core_circle_value' : ['32.6%'],
-						        'core_circle_radius':25,
-						        'maxValue' : 100,
-						        'increment' : 15,
-						        'chartDiv': 'chart_city_scale',
-						        'chartType': 'polar_pie',
-						        'chartSize': {width:550, height:280}
-						    };
-						    Nwagon.chart(options);
-						</script>
-						<h3>도시영역 규모 | Scale of city area</h3>
-					</div>
-					<div id="container_PiSVGinfo">
-						<div>
-							<span>전체 노드 수 | Total Nodes</span><br>
-							<p><strong>1000 nodes</strong></p>
-						</div>
-						<div>
-							<span>해당 영역 노드 수 | Nodes in this area</span><br>
-							<p><strong>326 nodes</strong></p>
-						</div>
-						<div>
-							<span>도시 영역 비중 | Gravity</span><br>
-							<p><strong>32.6 %</strong></p>
-						</div>
-					</div>
-				</div>
+				
 			</div>
 			
 			<!-- 협력업체 정보 컨테이너 -->
@@ -120,11 +78,11 @@
 					
 					<!-- 협력업체 정보 목록 -->
 					<button type="button" data-toggle="collapse" data-target="#col_Cooplist" 
-					id="btn_Cooplist" class="btn_transp" aria-expanded="false" aria-controls="col_Cooplist">
+					id="btn_Cooplist" class="btn_transp" aria-expanded="true" aria-controls="col_Cooplist">
 						협력업체 목록 | Co-op list
 					</button>
 					
-					<div class="collapse" id="col_Cooplist">
+					<div class="collapse in " id="col_Cooplist">
 						<div class="well">
 							<table id="table_Cooplist" class="table_ang">
 				    			<tr id="tr_Cooplist">

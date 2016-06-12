@@ -26,115 +26,104 @@
 		</div>
 		<!-- 몸통 -->
 		<div id="container_body">
-			<!-- SVG 헤더 -->
-			<div id="container_SVGheader">
-				<span>서비스 현황판</span>
-			</div>
-			<!-- SVG 그래프 & 정보 컨테이너 -->
-			<div id="container_SVG_p">
-				<!-- 그래프 정보 컨테이너 -->
-				<div id="container_SVGinfo">
-					<div>
-						<div id="cluster_nodes_stat"><h4 id="nodes_stat_num"><strong>0</strong></h4></div>
-						<script id="script_chart_totalNodes">
-							
-						</script>
-						<span>서비스 참여 중인 노드 : </span><br>
-						<p><strong><span id="nodes_stat_num2">0</span></strong> nodes</p>
-					</div>
+			
+			<div id="container_citylist">
+				<h3>도시 영역 목록</h3>
+				<div id="btnlist_city">
 				</div>
+				<!------------------->
+				<!--<div class="well">
+					<p>test</p>
+				</div>-->
+			</div>
+			
+			<div id="container_rightF">
 				
-				<div id="container_SVG">
-					<!--<span id="label_unit">(단위 : EA)</span>
-						<div id="chart_cluster_util"></div>
-							<script>
-								
-							</script>
-							<h3><br>서비스 참여 노드 추이</h3>-->
-				</div>
-				<div id="container_citylist">
-					<h3>도시 영역 목록</h3>
-					<div id="btnlist_city">
-
-					</div>
+				<div id="container_header">
+					<h1>서비스 제공 현황</h1>
+					<div class="divline_90"></div>
+				</div>	
+				<!-- 장치 & 사용자 관련 정보 컨테이너 -->
+				<div id="container_infolist">
+					<div>
+						<!-- 장치 등록  -->
+						<button type="button" id="btn_add3rd" class="btn_transp" 
+						data-toggle="modal" data-target="#modal_addDevice">
+							장치 등록
+						</button>
+						
+						<!-- 장치 정보 목록 -->
+						<button type="button" data-toggle="collapse" data-target="#col_deviceList" 
+						id="btn_3rdlist" class="btn_transp" aria-expanded="true" aria-controls="col_deviceList">
+							장치 목록 조회
+						</button>
+						
+						<!-- 사용자 정보 목록 -->
+						<button type="button" data-toggle="collapse" data-target="#col_userlist" 
+						id="btn_3rdlist" class="btn_transp" aria-expanded="true" aria-controls="col_userlist">
+							사용자 목록 조회
+						</button>
+						<div class="collapse in" id="col_deviceList">
+							<div class="well">
+								<div id="container_requestboard">
+									<h4>장치 목록</h4>
+									<div class="divline_90"></div>
+						    		<table id="table_device">
+						    			<tr id="table_device_h">
+						    				<th>제품 번호</th>
+						    				<th>제품 유형</th>
+						    				<th>제품명</th>
+						    				<th>생산 일시</th>
+						    			</tr>
+						    			<tr>
+						    				<!--<td>10001</td>
+						    				<td>세탁기</td>
+						    				<td>액티브워시 16kg</td>
+						    				<td>2016-06-02 22:33</td>-->
+						    			</tr>
+						    		</table>
+						    	</div>
+											</div>
+										</div>
+						<div class="collapse in" id="col_userlist">
+							<div class="well">
+								<div id="container_userboard">
+									<h4>사용자 목록</h4>
+									<div class="divline_90"></div>
+						    		<table id="table_user">
+						    			<tr id="table_user_h">
+						    				<th>ID</th>
+						    				<th>등록 시간</th>
+						    				<th>사용자 이름</th>
+						    				<th>상세 정보</th>
+						    			</tr>
+						    			<tr>
+						    				<!--<td>sample</td>
+						    				<td>ㅛㅛㅛㅛ ㅡㅡ ㅇㅇ ㅗㅗ:ㅡㅡ</td>
+						    				<td>예제임</td>
+						    				<td>
+						    					<button type="button" id="sample" class="btn_ang" 
+						    					onclick="userDetailClicked(id)" data-toggle="modal" data-target="#modal_userDetail">보기</button>
+						    				</td>-->
+						    			</tr> 
+						    		</table>
+						    	</div>
+							</div>
+						</div>
+					</div>			
 				</div>
 			</div>
-			<!-- 기기 & 사용자 관련 정보 컨테이너 -->
-			<div id="container_infolist">
-				<div>
-					<!-- 기기 등록  -->
-					<button type="button" id="btn_add3rd" class="btn_transp" 
-					data-toggle="modal" data-target="#modal_addDevice">
-						기기 등록 | Add Device
-					</button>
-					
-					<!-- 기기 정보 목록 -->
-					<button type="button" data-toggle="collapse" data-target="#col_deviceList" 
-					id="btn_3rdlist" class="btn_transp" aria-expanded="false" aria-controls="col_deviceList">
-						기기 목록 조회 | Show Device List
-					</button>
-					
-					<!-- 사용자 정보 목록 -->
-					<button type="button" data-toggle="collapse" data-target="#col_userlist" 
-					id="btn_3rdlist" class="btn_transp" aria-expanded="false" aria-controls="col_userlist">
-						사용자 목록 조회 | Show User List
-					</button>
-					
-					<div class="collapse" id="col_deviceList">
-						<div class="well">
-							<div id="container_requestboard">
-	    		<table id="table_device">
-	    			<tr id="table_device_h">
-	    				<th>제품 번호</th>
-	    				<th>제품 유형</th>
-	    				<th>제품명</th>
-	    				<th>생산 일시</th>
-	    			</tr>
-	    			<tr>
-	    				<!--<td>10001</td>
-	    				<td>세탁기</td>
-	    				<td>액티브워시 16kg</td>
-	    				<td>2016-06-02 22:33</td>-->
-	    			</tr>
-	    		</table>
-	    	</div>
-						</div>
-					</div>
-					<div class="collapse" id="col_userlist">
-						<div class="well">
-							<div id="container_userboard">
-	    		<table id="table_user">
-	    			<tr id="table_user_h">
-	    				<th>ID</th>
-	    				<th>등록 시간</th>
-	    				<th>사용자 이름</th>
-	    				<th>상세 정보</th>
-	    			</tr>
-	    			<tr>
-	    				<!--<td>sample</td>
-	    				<td>ㅛㅛㅛㅛ ㅡㅡ ㅇㅇ ㅗㅗ:ㅡㅡ</td>
-	    				<td>예제임</td>
-	    				<td>
-	    					<button type="button" id="sample" class="btn_ang" 
-	    					onclick="userDetailClicked(id)" data-toggle="modal" data-target="#modal_userDetail">보기</button>
-	    				</td>-->
-	    			</tr> 
-	    		</table>
-	    	</div>
-						</div>
-					</div>
-				</div>			
-			</div>
+	
 		</div>
 		
-		<!-- 모달 : 기기 등록 -->
+		<!-- 모달 : 장치 등록 -->
 		<div class="modal fade" id="modal_addDevice" tabindex="-1" role="dialog" 
 		aria-labelledby="modal_addDevice" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title" id="myModalLabel">기기 등록 | Add Device</h4>
+						<h4 class="modal-title" id="myModalLabel">장치 등록 | Add Device</h4>
 				  	</div>
 				  	<div class="modal-body">
 				  		<form>
@@ -163,7 +152,7 @@
 				</div>
 			</div>
 		</div>
-		<!-- 모달 : 기기 등록 종료 -->
+		<!-- 모달 : 장치 등록 종료 -->
 		
 		<!-- 모달 : 사용자 상세 정보 -->
 		<div class="modal fade" id="modal_userDetail" tabindex="-1" role="dialog" 
@@ -199,7 +188,7 @@
 				  		</table>
 				  		<div class="divline_60"></div>
 				  		<table id="table_userDevice" class="table_ang">
-				  			<tr><th colspan="4">등록한 기기 목록</th></tr>
+				  			<tr><th colspan="4">등록한 장치 목록</th></tr>
 				  			<tbody id="tr_userDevice">
 				  				<!--<tr>
 				  					<th>제품 번호</th>
