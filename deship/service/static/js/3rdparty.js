@@ -166,27 +166,28 @@ function detailOf(value){
 
 // 소모품 목록 조회
 $(function(){
-	var URLis="/item_list";
+	var URLis="/consumable";
 	var content = "";
-	/*$.ajax({
+	$.ajax({
 		type:"GET",
 		url:URLis,
 		dataType:"json",
 		success:function(data){
-			var itemlist = data["item_list"];
+			var itemlist = data["consumable"];
 			$.each(itemlist, function(index, entry){
 				content += "<div class=\"div_item\">"+
-	    			"<img src=\"/static/imgs/"+entry.item_id+".png\" class=\"img_items\"/>"+
+	    			"<img src=\"/consumable/"+entry.item_id+"/image\" class=\"img_items\"/>"+
 	    			"<span>"+
-	    				"<h5 class=\"item_name\">"+entry.item_name+"</h5>"+
-	    				"<h6>판매가 <span class=\"item_price\">"+entry.item_price+"</span> 원</h6>"+
-	    				"<p>보유 수량 : <span class=\"item_amount\">"+entry.amount+"</span> 개</p>"+
+	    				"<h5 class=\"item_name\">"+entry.name+"</h5>"+
+	    				"<h6>판매가 <span class=\"item_price\">"+entry.price+"</span> 원</h6>"+
 	    			"</span></div>";
 			});
-			$("#container_item").html(content);
+			$("#container_item>div").html(content);
 		}
-	});*/
-	var itemlist = sample_itemlist["item_list"];
+	});
+	
+	// 샘플코드
+	/*var itemlist = sample_itemlist["item_list"];
 	$.each(itemlist, function(index, entry){
 		content += "<div class=\"div_item\">"+
 			"<img src=\"/static/imgs/"+entry.item_id+".png\" class=\"img_items\"/>"+
@@ -196,7 +197,7 @@ $(function(){
 				"<p>보유 수량 : <span class=\"item_amount\">"+entry.amount+"</span> 개</p>"+
 			"</span></div>";
 	});
-	$("#container_item>div").html(content);
+	$("#container_item>div").html(content);*/
 });
 
 // 1초 주기로 요청 목록을 갱신
