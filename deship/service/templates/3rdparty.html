@@ -73,7 +73,13 @@
 	    	<div class="divline_80"></div>
 	    	
 	    	<div id="container_item">
-	    		<h3 class="tableLabel">소모품 현황</h3>
+	    		<span>
+	    			<h3 class="tableLabel">소모품 현황</h3>
+	    			<button type="button" id="btn_addItem" class="btn_ang" 
+					data-toggle="modal" data-target="#modal_addItem">
+						소모품 추가하기
+					</button>
+    			</span>
 	    		<div>
 	    		<!--<div class="div_item">
 	    			<img src="/static/imgs/item1.png" class="img_items"/>
@@ -157,6 +163,47 @@
 			</div>
 		</div>
 		<!-- 요청 상세정보 표시 모달 종료 -->
+		
+		<!-- 모달 : 소모품 추가 -->
+		<div class="modal fade" id="modal_addItem" tabindex="-1" role="dialog" 
+		aria-labelledby="modal_addItem" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel">소모품 추가</h4>
+				  	</div>
+				  	<div class="modal-body">
+				  		<form action="/consumable" enctype="multipart/form-data" method="post">
+							<div class="form-group">
+								<label for="name">품명</label>
+								<input type="text" class="form-control" id="name" name="name" placeholder="등록할 품명을 입력하세요.">
+							</div>
+							<div class="form-group">
+								<label for="category">분류</label>
+								<input type="text" class="form-control" id="category" name="category" placeholder="등록할 물품의 분류를 입력하세요.">
+							</div>
+							<div class="form-group">
+								<label for="device_category">해당 장치 유형</label>
+								<input type="text" class="form-control" id="device_category" name="device_category" placeholder="물품이 쓰일 장치 유형을 입력하세요.">
+							</div>
+							<div class="form-group">
+								<label for="price">가격</label>
+								<input type="text" class="form-control" id="price" name = "price" placeholder="등록할 물품의 수량을 입력하세요.">
+							</div>
+							<div class="form-group">
+								<label for="image">물품 사진</label>
+								<input type="file" name="image">
+								<p class="help-block">등록할 물품의 사진을 등록하세요.</p>
+							</div>
+							<div class="divline_90"></div>
+					  		<input type="submit" value="등록" id="btn_accept_addItem" class="btn_save"> </input>
+							<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+						</form>
+				</div>
+			</div>
+		</div>
+		<!-- 모달 : 소모품 추가 -->
 	<!-- 본문 종료 -->
     </body>
 </html>
