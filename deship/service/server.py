@@ -10,6 +10,6 @@ def run_service():
     pid = os.fork()
     if pid == 0:
         Logger.service_logger.info('Starting Service Web Server')
-        app.run(host='0.0.0.0', port=8080, debug=True)
+        app.run(host='0.0.0.0', port=8080, debug=False)
     else:
         return pid

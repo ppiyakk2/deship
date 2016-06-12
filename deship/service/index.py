@@ -4,4 +4,4 @@ from flask import render_template
 
 @app.route('/')
 def index():
-    return render_template('coop.html')
+    return render_template('3rdparty.html')

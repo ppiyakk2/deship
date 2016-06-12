@@ -1,10 +1,17 @@
 import json
+import rethinkdb as r
 
-def add_consumable(consumable):
-    with open("/home/vagrant/deship/deship/consumable.txt",'a') as f :
-        f.write(json.dumps(consumable))
+from deship.config import cooperation_id
+
+
+def add_consumable(item, image):
+    con = r.connect(host='printf.kr', port=28015)
+    item['co_id'] = cooperation_id
+    item['image'] = r.binary(image.stream.read())
+    r.db('gyunggido').table('cooperation_item').insert(item).run(con)
+
 
 def get_consumable_list():
-    with open("/home/vagrant/deship/deship/consumable.txt",'r') as f :
-        s = json.load(f)
-    return s
+    con = r.connect(host='printf.kr', port=28015)
+    re = r.db('gyunggido').table('cooperation_item').filter({'co_id': cooperation_id}).run(con)
+    return list(re) if re is not None else list()
