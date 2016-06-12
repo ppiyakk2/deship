@@ -3,16 +3,14 @@
     <head>
     	<!-- 메타 정보 및 스타일 시트 연동 -->
    		<meta charset="utf-8">
-        <title>3rd Party dashboard</title>
+        <title>Co-op Dashboard</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link type="text/css" href="/static/css/bootstrap.css" rel="stylesheet"/>
         <link type="text/css" href="/static/css/fontbase.css" rel="stylesheet"/>
         <link type="text/css" href="/static/css/3rdparty.css" rel="stylesheet"/>
         <!-- JQuery, Ajax, 부트스트랩 컴포넌트 연동 -->
-        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="/static/js/jquery-2.2.4.js"></script>
 	    <script src="/static/js/3rdparty.js"></script>
-		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZsO7B0GTo-FFgdz2SByGxzqW96ZnG6aE&callback=initMap"></script>
 		<script src="/static/js/bootstrap.js"></script>	
     </head>
 	
@@ -26,11 +24,13 @@
     	<div id="container_body">
     		<div id="mainlogo">
     			<img src="/static/imgs/3rd logo.png" width="100px" height="90px"/>
-    			<span>KHU 가전 종합수리점 - 경희대점</span>
+    			<span id="header_main">KHU 가전 종합수리점 - 경희대점</span>
     		</div>
-    		<h3 id="header_body">요청 현황판 | Requests Dashboard</h3>
+	    	
 	    	<div id="container_requestboard">
-	    		<table id="table_request">
+	    		<h3 class="tableLabel">진행중인 요청</h3>
+	    		<div class="divline_90"></div>
+	    		<table id="table_request_ongoing" class="table_ang">
 	    			<tr>
 	    				<th>제품명</th>
 	    				<th>요청 내용</th>
@@ -38,57 +38,67 @@
 	    				<th>요청 시간</th>
 	    				<th>상세정보</th>
 	    			</tr>
-	    			<tr>
-	    				<td>액티브워시 16kg</td>
-	    				<td>회전 모터 고장</td>
-	    				<td>경희대학교 국제캠퍼스 우정원 2570호</td>
-	    				<td>18:44 MAY 20, 2016</td>
-	    				<td><button type="button" id="btn_10001" class="btn_ang" 
-					data-toggle="modal" data-target="#modal_detail">확인</button></td>
-	    			</tr>
-	    			<tr>
-	    				<td>애드워시 17kg</td>
-	    				<td>소모품 구매</td>
-	    				<td>경희대학교 국제캠퍼스 우정원 2635호</td>
-	    				<td>18:53 MAY 20, 2016</td>
-	    				<td><button type="button" id="btn_10002" class="btn_ang" 
-					data-toggle="modal" data-target="#modal_detail">확인</button></td>
-	    			</tr>
-	    			<tr>
-	    				<td>무풍에어컨 Q9500</td>
-	    				<td>방문 진단</td>
-	    				<td>경희대학교 국제캠퍼스 우정원 2503호</td>
-	    				<td>19:09 MAY 20, 2016</td>
-	    				<td><button type="button" id="btn_10003" class="btn_ang" 
-					data-toggle="modal" data-target="#modal_detail">확인</button></td>
-	    			</tr>
-	    			<tr>
-	    				<td>패밀리 허브 837</td>
-	    				<td>디스플레이 고장</td>
-	    				<td>경희대학교 국제캠퍼스 전자정보대학</td>
-	    				<td>19:20 MAY 20, 2016</td>
-	    				<td><button type="button" id="btn_10003" class="btn_ang" 
-					data-toggle="modal" data-target="#modal_detail">확인</button></td>
-	    			</tr>
-	    			<tr>
-	    				<td>커브드 SUHD TV</td>
-	    				<td>방문 진단</td>
-	    				<td>경희대학교 국제캠퍼스 학생회관</td>
-	    				<td>19:21 MAY 20, 2016</td>
-	    				<td><button type="button" id="btn_10003" class="btn_ang" 
-					data-toggle="modal" data-target="#modal_detail">확인</button></td>
-	    			</tr>
+	    			<!--<tr>
+	    				<td class="req_device_name">액티브워시 16kg</td>
+	    				<td class="req_msg">회전 모터 고장</td>
+	    				<td class="req_address">경희대학교 국제캠퍼스 우정원 2570호</td>
+	    				<td class="req_reqtime">18:44 MAY 20, 2016</td>
+	    				<td>
+	    					<button type="button" id="btn_10001" value="10001" class="btn_ang" 
+							data-toggle="modal" data-target="#modal_detail" onclick="detailOf(req_id)">보기</button>
+						</td>
+	    			</tr>-->
 	    		</table>
+	    		
+	    		<button type="button" data-toggle="collapse" data-target="#col_req_complete" 
+					id="btn_req_complete" class="btn_ang" aria-expanded="false" aria-controls="col_req_complete">
+						완료된 요청 보기
+				</button>
+	    		<div class="collapse" id="col_req_complete">
+					<div class="well">
+			    		<h4>완료된 요청</h4>
+			    		<table id="table_request_complete" class="table_ang">
+			    			<tr>
+			    				<th>제품명</th>
+			    				<th>요청 내용</th>
+			    				<th>주소</th>
+			    				<th>요청 시간</th>
+			    				<th>상세정보</th>
+			    			</tr>
+			    		</table>
+					</div>
+				</div>
 	    	</div>
-	    	<div id="map">
-				<!--<iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJTYWP0t1EezUR_YS-z2DtQM4&key=AIzaSyDqnsAA8pYGG44GOxKSAz4zAhukrqIlu5E" allowfullscreen></iframe>  	-->
-			</div>
+	    	
+	    	<div class="divline_80"></div>
+	    	
+	    	<div id="container_item">
+	    		<h3 class="tableLabel">소모품 현황</h3>
+	    		<div>
+	    		<!--<div class="div_item">
+	    			<img src="/static/imgs/item1.png" class="img_items"/>
+	    			<span>
+	    				<h5 class="item_name">퍼실 컬ㄹ러 드럼전용 2.7L</h5>
+	    				<h6 class="item_price">판매가 19,000원</h6>
+	    				<p>보유 수량 : <span class="item_amount">59</span> 개</p>
+	    			</span>
+	    		</div>
+	    		<div class="div_item">
+	    			<img src="/static/imgs/item2.png" class="img_items"/>
+	    			<span>
+	    				<h5 class="item_name">아토세이프 드럼전용 2.5L</h5>
+	    				<h6>판매가 <span class="item_price">22,000원</span></h6>
+	    				<p>보유 수량 : <span class="item_amount">38</span> 개</p>
+	    			</span>
+	    		</div>-->
+	    		</div>
+	    	</div>
     	</div>
     	
     	
-    	<!-- Modal -->
+    	<!-- 요청 상세정보 표시 모달 -->
 		<div class="modal fade" id="modal_detail" tabindex="-1" role="dialog" 
-		aria-labelledby="modal_add3rd" aria-hidden="true">
+		aria-labelledby="modal_detail" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -96,43 +106,49 @@
 						<h4 class="modal-title" id="myModalLabel">요청 상세정보</h4>
 				  	</div>
 				  	<div class="modal-body">
-				    	<table id="table_detail">
+				    	<table id="table_detail" class="table_ang">
+				    		<tr>
+				    			<td colspan="2">
+				    				<img id="img_device" src="/static/imgs/wahsing_machine_pic.png"/>
+				    			</td>
+				    		</tr>
 				    		<tr>
 				    			<th>S/N</th>
-				    			<td>10001</td>
+				    			<td id="req_SN">--</td>
 				    		</tr>
 				    		<tr>
 				    			<th>사용자명</th>
-				    			<td>KHUuser1</td>
+				    			<td id="req_user_name">--</td>
 				    		</tr>
 				    		<tr>
 				    			<th>제품명</th>
-				    			<td>액티브워시 16kg WA16J6850KS 실버</td>
+				    			<td id="req_device_name">--</td>
 				    		</tr>
 				    		<tr>
 				    			<th>등록 일자</th>
-				    			<td>14:28 MAY 2, 2016</td>
+				    			<td id="req_reg_date">--</td>
 				    		</tr>
 				    		<tr>
 				    			<th>요청 내용</th>
-				    			<td>회전 모터 고장(msg:fault_RM101)</td>
+				    			<td id="req_msg">--</td>
 				    		</tr>
 				    		<tr>
 				    			<th>품목/수량</th>
-				    			<td>RM101 회전모터, 1EA</td>
+				    			<td id="req_item">--, --</td>
 				    		</tr>
 				    		<tr>
 				    			<th>주소</th>
-				    			<td>경기도 용인시 기흥구 서천동 덕영대로 1732 경희대학교 국제캠퍼스 우정원 2570호</td>
+				    			<td id="req_address">-- -- -- --</td>
 				    		</tr>
 				    		<tr>
 				    			<th>요청 시간</th>
-				    			<td>18:44 MAY 20, 2016</td>
+				    			<td id="req_reqtime">---- -- -- --:--</td>
+				    		</tr>
+				    		<tr>
+				    			<th>요청 상태</th>
+				    			<td id="req_status">--</td>
 				    		</tr>
 				    	</table>
-				    	<div id="mapInModal">
-				    		<iframe width="550" height="350" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJTYWP0t1EezUR_YS-z2DtQM4&key=AIzaSyDqnsAA8pYGG44GOxKSAz4zAhukrqIlu5E" allowfullscreen></iframe>  	
-						</div>
 				  	</div>
 				  	<div class="modal-footer">
 				  		<button type="button" class="btn_ang" data-dismiss="modal">확인</button>
@@ -140,6 +156,7 @@
 				</div>
 			</div>
 		</div>
+		<!-- 요청 상세정보 표시 모달 종료 -->
 	<!-- 본문 종료 -->
     </body>
 </html>

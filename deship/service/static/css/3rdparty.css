@@ -101,51 +101,126 @@ body
 	width:80%;
 	margin-top:40px;
 	padding-top:15px;
-	padding-bottom:30px;
-	border-top:1px solid #D0D0D0; 
-}
-#map
-{
-	padding-top : 20px;
-	margin:auto; auto;
-	margin-top:30px;
-	border-top:1px solid #D0D0D0;
-	width:450px;
-	height:350px;
-}
-#table_request
-{
-	margin:auto auto;
-	width:102%;
-}
-#table_request>tbody
-{
-	margin:auto auto;
-}
-#table_request>tbody>tr>th
-{
-	text-align:center !important;
-	font-size:12pt !important;
-	padding-top:5px;
-	padding-bottom:15px;
-}
-#table_request>tbody>tr>td
-{
-	text-align:center !important;
-	font-size:11pt;
-	padding-left:8px;
-	padding-right: 9px;
-	padding-top:5px;
 	padding-bottom:5px;
 }
+#btn_req_complete{
+	margin:15px; auto;
+	font-size:13pt;
+	padding:3px 13px;
+	border-radius:3px;
+	background-color:RGBA(255,70,50,0.8);
+}
+#col_req_complete{
+	margin-top:9px;
+}
+#container_userboard>h4{
+	margin-top:0px;
+	margin-bottom:15px;
+}
+#img_device{
+	width:200px;
+	height:200px;
+	margin:10px auto;
+}
+#table_detail{
+	font-size:10pt !important;
+}
 /*********************************/
-/*********** 컴포넌트 디자인  **********/
+
+/*********** 클래스 디자인  **********/
+.tableLabel{
+	display:inline-block;
+}
+.img_items{
+	width:150px;
+	height:150px;
+	display:inline-block;
+	margin:10px 10px;
+}
+.div_item{
+	width:30%;
+	margin:10px; auto;
+	border:1px solid RGBA(111,111,111,0.1);
+	display:inline-block;
+}
+.div_item>*{
+	display:inline-block;
+}
+.well{
+	padding:8px 8px;
+}
 .btn_ang
 {
 	background-color:RGBA(0,210,255,0.9);
 	color:white;
 	border:0px;
 	border-radius:2px;
+}
+.btn_ang:hover
+{
+	background-color:RGBA(0,190,245,0.9);
+	font-style:normal;
+	color:white;
+	text-decoration:none;
+}
+.btn_ang:active
+{
+	color:white;
+	text-decoration:none !important;
+}
+.btn_ang:visited
+{
+	text-decoration:none !important;
+	color:white;
+}
+.btn_ang:focus
+{
+	text-decoration:none;
+}
+.citybtn
+{
+	font-size:25pt;
+	padding:9pt 14pt;
+	font-weight:normal;
+	border-radius:6pt;
+	margin:15px; 10px;
+}
+.citybtn:active
+{
+	text-decoration: none !important;
+	color:white;
+}
+.citybtn:visited
+{
+	text-decoration:none !important;
+	color:white;
+}	
+.table_ang
+{
+	margin:auto auto;
+	width:102%;
+}
+.table_ang>tbody
+{
+	margin:auto auto;
+}
+.table_ang>tbody>tr>th
+{
+	text-align:center;
+	font-size:11pt;
+	padding-left:8px;
+	padding-right:8px;
+	padding-top:4px;
+	padding-bottom:4px;
+}
+.table_ang>tbody>tr>td
+{
+	text-align:center;
+	font-size:11pt;
+	padding-left:8px;
+	padding-right:8px;
+	padding-top:4px;
+	padding-bottom:4px;
 }
 #ul_request >li
 {
@@ -158,16 +233,36 @@ li
 th
 {
 	padding:5px 8px;
-	text-align:right;
 }
 td
 {
 	padding:5px 8px;	
-	text-align:left;
 }
 #mapInModal
 {
 	margin:auto auto;
 	padding-top:20px;
 	width:auto;
+}
+.divline_60{
+	width:60% !important;
+	margin:10px auto;
+	height:1px;
+	background-color:#d0d0d0;
+}
+.divline_90{
+	width:90% !important;
+	margin:10px auto;
+	height:1px;
+	background-color:#d0d0d0;
+}
+.divline_80{
+	width:80% !important;
+	margin:10px auto;
+	height:1px;
+	background-color:#d0d0d0;
+}
+.tableLabel{
+	margin-top:20px;
+	margin-bottom:20px;
 }
