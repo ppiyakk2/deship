@@ -15,3 +15,13 @@ def add_consumable():
 def consumable_list():
     li = consumable.get_consumable_list()
     return jsonify(consumable=li)
+
+
+@app.route('/consumable/<cid>/image', methods=['GET'])
+def get_cumsum_image(cid):
+    img = consumable.get_consum(cid)
+    import flask
+    response = flask.Response(img)
+    response.headers['Content-Type'] = "image/jpeg"
+    response.headers['Content-Disposition'] = "inline; filename=item.jpg"
+    return response
