@@ -56,17 +56,17 @@ var sample_itemlist = {
 
 // 요청 목록 조회
 function update_reqList(){
-	var content_ongoing="<tr><th>제품명</th><th>요청 내용</th><th>주소</th><th>요청 시간</th><th>상세정보</th></tr>";
-	var content_complete="<tr><th>제품명</th><th>요청 내용</th><th>주소</th><th>요청 시간</th><th>상세정보</th></tr>";
-	/*var URLis="/request_list";
+	var content_ongoing="<tr><th>요청 내용</th><th>주소</th><th>요청 시간</th><th>상세정보</th></tr>";
+	var content_complete="<tr><th>요청 내용</th><th>주소</th><th>요청 시간</th><th>상세정보</th></tr>";
+	var URLis="/transaction";
 	$.ajax({
 		type:"GET",
 		url:URLis,
 		dataType:"json",
 		success:function(data){
-			var reqlist = data["request_list"];
+			var reqlist = data["transactiondata"];
 			$.each(reqlist, function(index, entry){
-				if(entry.status == "ongoing"){
+				if(!entry.request_done){
 					content_ongoing = add_ongoing(entry, content_ongoing);
 				}
 				else{
@@ -76,92 +76,69 @@ function update_reqList(){
 			$("#table_request_ongoing").html(content_ongoing);
 			$("#table_request_complete").html(content_complete);
 		}
-	});*/
-	
-	// 요청 목록 조회 샘플 코드
-	var reqlist = sample_reqList["request_list"];
-	$.each(reqlist, function(index, entry){
-		if(entry.status == "ongoing"){
-			content_ongoing = add_ongoing(entry, content_ongoing);
-		}
-		else{
-			content_complete = add_complete(entry, content_complete);
-		}
 	});
-	$("#table_request_ongoing").html(content_ongoing);
-	$("#table_request_complete").html(content_complete);
+
 };
 
 // 진행중인 요청 목록에 추가
 function add_ongoing(entry, content){
 	content += "<tr>"+
-    				"<td class=\"req_SN\">"+entry.device_name+"</td>"+
-    				"<td class=\"req_msg\">"+entry.msg+"</td>"+
-    				"<td class=\"req_address\">"+entry.address+"</td>"+
-    				"<td class=\"req_reqtime\">"+entry.reqtime+"</td>"+
+    				"<td class=\"req_msg\">세제 구매</td>"+
+    				"<td class=\"req_address\">"+entry.address +"</td>"+
+    				"<td class=\"req_reqtime\">"+ entry.request_tx +"</td>"+
     				"<td>"+
-    					"<button id=\"btn_"+entry.SN+"\" value=\""+entry.SN+"\" class=\"btn_ang\""+
-						"data-toggle=\"modal\" data-target=\"#modal_detail\" onclick=\"detailOf(value)\">보기</button>"+
+    					"<button id=\"btn_"+entry.device_id+"\" value=\""+entry.device_id+"\" class=\"btn_ang\""+
+						"data-toggle=\"modal\" data-target=\"#modal_detail\" onclick=\"detailOf('"+entry.tx_id+"', '진행중')\">보기</button>"+
 					"</td></tr>";
 	return content;
 }
 // 완료된 요청 목록에 추가
 function add_complete(entry, content){
 	content += "<tr>"+
-    				"<td class=\"req_SN\">"+entry.device_name+"</td>"+
-    				"<td class=\"req_msg\">"+entry.msg+"</td>"+
+    				"<td class=\"req_msg\">세제 구매</td>"+
     				"<td class=\"req_address\">"+entry.address+"</td>"+
-    				"<td class=\"req_reqtime\">"+entry.reqtime+"</td>"+
+    				"<td class=\"req_reqtime\">"+entry.request_tx+"</td>"+
     				"<td>"+
-    					"<button id=\"btn_"+entry.SN+"\" value=\""+entry.SN+"\" class=\"btn_ang\""+
-						"data-toggle=\"modal\" data-target=\"#modal_detail\" onclick=\"detailOf(value)\">보기</button>"+
+    					"<button id=\"btn_"+entry.device_id+"\" value=\""+entry.device_id+"\" class=\"btn_ang\""+
+						"data-toggle=\"modal\" data-target=\"#modal_detail\" onclick=\"detailOf('"+entry.tx_id+"', '완료')\">보기</button>"+
 					"</td></tr>";
 	return content;
 }
 
-// 요청 상세정보 획득
-function detailOf(value){
-	/*var URLis="/request/"+value;
+
+// 완료 요청
+function done(tx_id){
+	var URLis = '/transaction/' + tx_id + "/done"
 	$.ajax({
 		type:"GET",
 		url:URLis,
 		dataType:"json",
 		success:function(data){
-			var reqinfo = data["request"];
-			$("#img_device").attr("src","/static/imgs/"+reqinfo.device_name+".png");
-			$("#req_SN").html(reqinfo.SN);
+		}
+	});
+}
+
+// 요청 상세정보 획득
+function detailOf(value, r){
+	var URLis="/transaction/"+value;
+	$.ajax({
+		type:"GET",
+		url:URLis,
+		dataType:"json",
+		success:function(data){
+			var reqinfo = data["transaction"];
+			$("#img_device").attr("src","/static/imgs/wahsing_machine_pic.png");
+			$("#req_SN").html(reqinfo.device_sn);
 			$("#req_user_name").html(reqinfo.user_name);
 			$("#req_device_name").html(reqinfo.device_name);
-			$("#req_reg_date").html(reqinfo.reg_date);
-			$("#req_msg").html(reqinfo.msg);
-			$("#req_item").html(reqinfo.item+"/"+reqinfo.amount);
+			$("#req_msg").html("세제 구매");
+			$("#req_item").html(reqinfo.item_name+"/1");
 			$("#req_address").html(reqinfo.address);
-			$("#req_reqtime").html(reqinfo.reqtime);
-			$("#req_status").html(reqinfo.status);
+			$("#req_reqtime").html(reqinfo.request_time);
+			$("#req_status").html(r);
+			$("#done_button").html("<button type='button' class='btn_ang' data-dismiss='modal' onclick=done('"+reqinfo.tx_id+"')\>완료</button>")
 		}
-	});*/
-	
-	// 요청 상세정보 조회 샘플 코드
-	var reqinfo = sample_request["request"];
-	var imgname;
-	if(reqinfo.device_name == "좋은 세탁기"){
-		imgname = "washing_machine_pic";
-	}
-	$("#img_device").attr("src","/static/imgs/"+reqinfo.device_name+".png");
-	$("#req_SN").html(reqinfo.SN);
-	$("#req_user_name").html(reqinfo.user_name);
-	$("#req_device_name").html(reqinfo.device_name);
-	$("#req_reg_date").html(reqinfo.reg_date);
-	$("#req_msg").html(reqinfo.msg);
-	$("#req_item").html(reqinfo.item+", "+reqinfo.amount+"개");
-	$("#req_address").html(reqinfo.address);
-	$("#req_reqtime").html(reqinfo.reqtime);
-	if(reqinfo.status == "ongoing"){
-		$("#req_status").html("진행중");
-	}
-	else{
-		$("#req_status").html("완료됨");
-	}
+	});
 }
 
 // 소모품 목록 조회
