@@ -63,9 +63,6 @@ body
 {
 	background-color:RGBA(255,255,255,0.1);
 }
-/**********************************/
-
-/************ 몸통 스타일 *************/
 #container_body
 {
 	background-color:white;
@@ -124,6 +121,14 @@ body
 }
 #table_detail{
 	font-size:10pt !important;
+}
+#btn_addItem{
+	display:inline-block;
+	font-size:13pt;
+	margin: auto auto;
+	position:relative;
+	left:20%;
+	background-color:RGBA(90,220,100,0.8);
 }
 /*********************************/
 
@@ -265,4 +270,23 @@ td
 .tableLabel{
 	margin-top:20px;
 	margin-bottom:20px;
+}
+.btn_save
+{
+	border-radius:4px;
+	padding:6px;
+	padding-left:11px;
+	padding-right:11px;
+	color:white;
+	border:1px solid #D0D0D0;
+	background-color: RGBA(33,33,222,0.7);
+}
+.btn_transp
+{
+	border-radius:4px;
+	padding:5px;
+	padding-left:7px;
+	padding-right:7px;
+	color:white;
+	border:0px;
 }
