@@ -108,7 +108,7 @@ function add_complete(entry, content){
 
 // 완료 요청
 function done(tx_id){
-	var URLis = '/transaction/' + tx_id + "/done"
+	var URLis = '/transaction/' + tx_id + "/done";
 	$.ajax({
 		type:"GET",
 		url:URLis,
@@ -136,7 +136,7 @@ function detailOf(value, r){
 			$("#req_address").html(reqinfo.address);
 			$("#req_reqtime").html(reqinfo.request_time);
 			$("#req_status").html(r);
-			$("#done_button").html("<button type='button' class='btn_ang' data-dismiss='modal' onclick=done('"+reqinfo.tx_id+"')\>완료</button>")
+			$("#done_button").html("<button type='button' class='btn_ang' data-dismiss='modal' onclick=done('"+reqinfo.tx_id+"')\>완료</button>");
 		}
 	});
 }

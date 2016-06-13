@@ -130,6 +130,13 @@ body
 	left:20%;
 	background-color:RGBA(90,220,100,0.8);
 }
+#done_button{
+	display:inline-block;
+	margin:auto 10px;
+}
+#done_button>button{
+	background-color:RGBA(110,70,255,0.8);
+}
 /*********************************/
 
 /*********** 클래스 디자인  **********/
